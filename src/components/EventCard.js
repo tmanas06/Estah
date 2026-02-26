@@ -39,7 +39,7 @@ export default function EventCard({ onOpenModal }) {
 
                 <div className="card-meta">
                     <div className="card-meta-row">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8F03E" strokeWidth="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" />
                             <line x1="16" y1="2" x2="16" y2="6" />
                             <line x1="8" y1="2" x2="8" y2="6" />
@@ -48,7 +48,7 @@ export default function EventCard({ onOpenModal }) {
                         <span>Sun, 22 March 2026 · 12:00 PM – 4:00 PM</span>
                     </div>
                     <div className="card-meta-row">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8F03E" strokeWidth="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                             <circle cx="12" cy="10" r="3" />
                         </svg>
@@ -65,7 +65,9 @@ export default function EventCard({ onOpenModal }) {
 
                 <div className="card-footer">
                     <span className="sold-out-badge">SOLD OUT</span>
-                    <span className="view-details">View Details →</span>
+                    <span className="view-details">
+                        View Details <span className="arrow">→</span>
+                    </span>
                 </div>
             </div>
         </article>
