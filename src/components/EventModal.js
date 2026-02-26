@@ -125,7 +125,7 @@ export default function EventModal({ isOpen, onClose }) {
                     <div className="modal-section">
                         <h3 className="modal-section-title">About This Event</h3>
                         <p>
-                            Run for Education is a heartfelt initiative by Estah Society to support
+                            Run for Education is a heartfelt initiative by Events MVP to support
                             children&apos;s learning and spread awareness about the value of education.
                             This event brings together students, parents, teachers, and community members
                             to stand for one common purpose — ensuring every child gets the opportunity to
@@ -205,16 +205,16 @@ export default function EventModal({ isOpen, onClose }) {
                             {!orgImgError && (
                                 <img
                                     src="https://skillbloomer.com/uploads/store/uploads/organizers/RftXZ9cnL1Y5016F259HAtWHqJ76qhAU5w1eXltf.jpg"
-                                    alt="Estah Society"
+                                    alt="Events MVP"
                                     onError={() => setOrgImgError(true)}
                                 />
                             )}
                             <div className="organizer-info">
-                                <h4>Estah Society</h4>
+                                <h4>Events MVP</h4>
                                 <p>
-                                    Estah Society is a community-driven non-profit empowering communities
+                                    Events MVP is a community-driven platform empowering communities
                                     through education, entrepreneurship, and sustainability under the WE HEAL
-                                    THE EARTH framework. With a vision for India 2047, Estah Society is
+                                    THE EARTH framework. With a vision for India 2047, Events MVP is
                                     committed to creating lasting impact through innovative practices and
                                     community engagement.
                                 </p>

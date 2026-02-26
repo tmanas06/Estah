@@ -40,7 +40,7 @@ export default function Navbar() {
         <>
             <nav className="nav" role="navigation" aria-label="Main navigation">
                 <Link href="/events" className="nav-logo">
-                    Estah Society
+                    Events MVP
                 </Link>
 
                 <div className="nav-links" id="navLinks">

@@ -1,7 +1,7 @@
 import ComingSoon from '@/components/ComingSoon';
 
 export const metadata = {
-    title: 'Gallery — Estah Society',
+    title: 'Gallery — Events MVP',
     description: 'Photos and moments from our events and programs across India.',
 };
 

@@ -1,7 +1,7 @@
 import ComingSoon from '@/components/ComingSoon';
 
 export const metadata = {
-    title: 'Impact — Estah Society',
+    title: 'Impact — Events MVP',
     description: 'Live data on students impacted, fellowships awarded, and communities transformed.',
 };
 

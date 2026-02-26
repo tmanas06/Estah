@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer>
             <div className="footer-brand">
-                <h3>Estah Society</h3>
+                <h3>Events MVP</h3>
                 <p className="tagline">Run for a Child&apos;s Future</p>
                 <p>
                     Empowering communities through education, entrepreneurship, and
@@ -61,7 +61,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-bottom">
-                <p>© 2026 Estah Society · WE HEAL THE EARTH Initiative</p>
+                <p>© 2026 Events MVP · WE HEAL THE EARTH Initiative</p>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms</a>
             </div>

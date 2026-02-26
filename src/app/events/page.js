@@ -65,7 +65,7 @@ const emojis = [
     { emoji: '🎊', top: '50%', left: '92%', dur: '9.5s', delay: '2.5s' },
 ];
 
-const tickerText = '🏃 RUN FOR EDUCATION — 22 MARCH 2026 — GACHIBOWLI STADIUM, HYDERABAD — FREE ENTRY — SOLD OUT — 70+ PARTICIPANTS — WE HEAL THE EARTH — ESTAH SOCIETY';
+const tickerText = '🏃 RUN FOR EDUCATION — 22 MARCH 2026 — GACHIBOWLI STADIUM, HYDERABAD — FREE ENTRY — SOLD OUT — 70+ PARTICIPANTS — WE HEAL THE EARTH — EVENTS MVP';
 
 export default function EventsPage() {
     const [modalOpen, setModalOpen] = useState(false);
@@ -122,7 +122,7 @@ export default function EventsPage() {
                 ))}
 
                 <div className="hero-content">
-                    <p className="eyebrow">Estah Society · Events 2026</p>
+                    <p className="eyebrow">Events MVP · Events 2026</p>
                     <h1 className="hero-title">
                         Upcoming <em>Events</em>
                     </h1>

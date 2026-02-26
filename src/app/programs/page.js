@@ -1,7 +1,7 @@
 import ComingSoon from '@/components/ComingSoon';
 
 export const metadata = {
-    title: 'Programs — Estah Society',
+    title: 'Programs — Events MVP',
     description: 'From scholarship exams to Education Fellowships — see how we create impact.',
 };
 

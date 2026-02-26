@@ -20,12 +20,12 @@ const nunito = Nunito({
 });
 
 export const metadata = {
-  title: 'Estah Society — Run for a Child\'s Future',
+  title: 'Events MVP — Run for a Child\'s Future',
   description:
-    'Estah Society empowers communities through education, entrepreneurship, and sustainability under the WE HEAL THE EARTH framework.',
-  keywords: ['Estah Society', 'education', 'sustainability', 'WE HEAL THE EARTH', 'non-profit', 'India'],
+    'Events MVP empowers communities through education, entrepreneurship, and sustainability under the WE HEAL THE EARTH framework.',
+  keywords: ['Events MVP', 'education', 'sustainability', 'WE HEAL THE EARTH', 'non-profit', 'India'],
   openGraph: {
-    title: 'Estah Society — Run for a Child\'s Future',
+    title: 'Events MVP — Run for a Child\'s Future',
     description:
       'Empowering communities through education, entrepreneurship, and sustainability.',
     type: 'website',

@@ -1,7 +1,7 @@
 import ComingSoon from '@/components/ComingSoon';
 
 export const metadata = {
-    title: 'Home — Estah Society',
+    title: 'Home — Events MVP',
     description: 'Our full homepage with our story, mission, and community highlights is coming soon.',
 };
 
@@ -12,7 +12,7 @@ export default function HomePage() {
         <ComingSoon
             icon="🏠"
             pageName="Home"
-            title="A New Home for Estah Society"
+            title="A New Home for Events MVP"
             subtitle="Our full homepage with our story, mission, and community highlights is in the works."
             svgContent={svgContent}
         />

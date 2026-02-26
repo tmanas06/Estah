@@ -34,7 +34,7 @@ export default function EventCard({ onOpenModal }) {
                 <h3 className="card-title">Run for Education</h3>
                 <div className="card-org">
                     <div className="card-org-avatar">ES</div>
-                    <span>Estah Society</span>
+                    <span>Events MVP</span>
                 </div>
 
                 <div className="card-meta">
