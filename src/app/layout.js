@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GrainOverlay from '@/components/GrainOverlay';
+import { ToastProvider } from '@/components/MobileToast';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -35,12 +36,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${syne.variable} ${nunito.variable}`}>
       <body style={{ fontFamily: 'var(--font-body)' }}>
-        <GrainOverlay />
-        <Navbar />
-        <main className="page-wrapper">
-          {children}
-        </main>
-        <Footer />
+        <ToastProvider>
+          <GrainOverlay />
+          <Navbar />
+          <main className="page-wrapper">
+            {children}
+          </main>
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );

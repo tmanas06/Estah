@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import EventCard from '@/components/EventCard';
 import EventModal from '@/components/EventModal';
+import { useToast } from '@/components/MobileToast';
 
 // Confetti explosion
 function fireConfetti(canvas) {
@@ -70,16 +71,32 @@ export default function EventsPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [activeFilter, setActiveFilter] = useState('All Events');
     const confettiRef = useRef(null);
+    const { addToast } = useToast();
 
     const filters = ['All Events', 'This Month', 'Sustainability', 'Education', 'Free Events'];
 
     useEffect(() => {
         // Fire confetti on load
-        const timer = setTimeout(() => {
+        const confettiTimer = setTimeout(() => {
             if (confettiRef.current) fireConfetti(confettiRef.current);
         }, 600);
-        return () => clearTimeout(timer);
-    }, []);
+
+        // Toast notification on events loaded
+        const toastTimer = setTimeout(() => {
+            addToast({
+                icon: '🎊',
+                title: 'Events Loaded!',
+                message: '1 upcoming event found — Run for Education on March 22',
+                type: 'success',
+                duration: 5000,
+            });
+        }, 1200);
+
+        return () => {
+            clearTimeout(confettiTimer);
+            clearTimeout(toastTimer);
+        };
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
