@@ -5,13 +5,13 @@ import { usePathname } from 'next/navigation';
 import { useState, useCallback } from 'react';
 
 const navItems = [
-    { name: 'Home', path: '/home-page', soon: true },
-    { name: 'About Us', path: '/about', soon: true },
+    { name: 'Home', path: '/home-page', soon: false },
+    { name: 'About Us', path: '/about', soon: false },
     { name: 'Events', path: '/events', soon: false },
-    { name: 'Programs', path: '/programs', soon: true },
-    { name: 'Impact', path: '/impact', soon: true },
-    { name: 'Gallery', path: '/gallery', soon: true },
-    { name: 'Contact', path: '/contact', soon: true },
+    { name: 'Programs', path: '/programs', soon: false },
+    { name: 'Impact', path: '/impact', soon: false },
+    { name: 'Gallery', path: '/gallery', soon: false },
+    { name: 'Contact', path: '/contact', soon: false },
 ];
 
 export default function Navbar() {

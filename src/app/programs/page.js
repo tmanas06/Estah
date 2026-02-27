@@ -1,20 +1,82 @@
-import ComingSoon from '@/components/ComingSoon';
+import Link from 'next/link';
 
 export const metadata = {
     title: 'Programs — Events MVP',
-    description: 'From scholarship exams to Education Fellowships — see how we create impact.',
+    description: 'Explore our key initiatives: Scholarship Exams, Rural Fellowships, and Sustainable Schools.',
 };
 
-const svgContent = '<svg width="100%" height="100%" viewBox="0 0 800 600"><rect x="200" y="100" width="400" height="400" rx="40" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1" transform="rotate(15 400 300)"/><rect x="250" y="150" width="300" height="300" rx="30" fill="none" stroke="rgba(201,168,76,.04)" stroke-width="1" transform="rotate(30 400 300)"/></svg>';
+const programs = [
+    {
+        title: 'Education Scholarship Exam',
+        icon: '📝',
+        desc: 'Identifying and supporting brilliant minds from underprivileged backgrounds through merit-based scholarship programs.',
+        tags: ['Education', 'Grassroots'],
+        color: 'var(--sky)'
+    },
+    {
+        title: 'Rural Fellowship Program',
+        icon: '🤝',
+        desc: 'A 2-year dedicated program for young leaders to work directly with rural communities on education and sustainability.',
+        tags: ['Leadership', 'Impact'],
+        color: 'var(--coral)'
+    },
+    {
+        title: 'Sustainable Schools',
+        icon: '🏫',
+        desc: 'Integrating green energy, zero-waste practices, and environmental education into the core of Indian schools.',
+        tags: ['Sustainability', 'Innovation'],
+        color: 'var(--lime)'
+    }
+];
 
 export default function ProgramsPage() {
     return (
-        <ComingSoon
-            icon="📚"
-            pageName="Programs"
-            title="Explore Our Programs"
-            subtitle="From scholarship exams to Education Fellowships — a full overview of how we create impact is coming."
-            svgContent={svgContent}
-        />
+        <div className="programs-container">
+            {/* HERO */}
+            <section className="programs-hero">
+                <div className="hero-content">
+                    <p className="eyebrow">Initiatives</p>
+                    <h1 className="hero-title">
+                        Transforming <em>Potential</em> into <em>Progress</em>
+                    </h1>
+                    <p className="hero-sub">
+                        From scholarship exams to intensive community fellowships, discover the
+                        targeted programs we run to create a sustainable and equitable future.
+                    </p>
+                </div>
+            </section>
+
+            {/* PROGRAMS GRID */}
+            <section className="programs-grid-section">
+                <div className="grid-container">
+                    {programs.map((p, i) => (
+                        <div key={i} className="program-card" style={{ '--accent': p.color }}>
+                            <div className="p-header">
+                                <span className="p-icon">{p.icon}</span>
+                                <div className="p-tags">
+                                    {p.tags.map(tag => <span key={tag} className="p-tag">{tag}</span>)}
+                                </div>
+                            </div>
+                            <h3 className="p-title">{p.title}</h3>
+                            <p className="p-desc">{p.desc}</p>
+                            <div className="p-footer">
+                                <button className="p-cta">Learn More</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* CTA SECTION */}
+            <section className="programs-cta">
+                <div className="cta-box">
+                    <h2>Want to <em>Partner</em> with us?</h2>
+                    <p>We are always looking for institutional partners and corporate sponsors to scale our impact.</p>
+                    <Link href="/contact" className="cta-btn secondary">
+                        Get in Touch
+                    </Link>
+                </div>
+            </section>
+        </div>
     );
 }

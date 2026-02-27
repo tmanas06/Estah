@@ -1,20 +1,52 @@
-import ComingSoon from '@/components/ComingSoon';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
     title: 'Contact — Events MVP',
-    description: 'Get in touch with Events MVP — partners, volunteers, donors welcome.',
+    description: 'Get in touch with Events MVP — partners, volunteers, and donors welcome.',
 };
-
-const svgContent = '<svg width="100%" height="100%" viewBox="0 0 800 600"><path d="M200,300 Q400,100 600,300 Q400,500 200,300" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1"/><path d="M250,300 Q400,150 550,300 Q400,450 250,300" fill="none" stroke="rgba(201,168,76,.04)" stroke-width="1"/></svg>';
 
 export default function ContactPage() {
     return (
-        <ComingSoon
-            icon="✉️"
-            pageName="Contact"
-            title="Let's Build Together"
-            subtitle="Whether you're a partner, volunteer, donor, or simply curious — we'd love to connect."
-            svgContent={svgContent}
-        />
+        <div className="contact-container">
+            {/* HERO */}
+            <section className="contact-hero">
+                <div className="hero-content">
+                    <p className="eyebrow">Connect</p>
+                    <h1 className="hero-title">
+                        Let's build <em>Together</em>
+                    </h1>
+                    <p className="hero-sub">
+                        Whether you are a donor, volunteer, or potential partner, we would love to
+                        hear from you. Use the form below or drop by our office.
+                    </p>
+                </div>
+            </section>
+
+            {/* CONTACT SPLIT */}
+            <section className="contact-split">
+                <div className="contact-info">
+                    <div className="info-card">
+                        <h3>Our Office</h3>
+                        <p>
+                            Gachibowli Stadium<br />
+                            Old Mumbai Highway<br />
+                            Gachibowli, Hyderabad<br />
+                            Telangana, India 500032
+                        </p>
+                    </div>
+                    <div className="info-card">
+                        <h3>Direct Links</h3>
+                        <div className="direct-links">
+                            <a href="mailto:contact@eventsmvp.org" className="direct-link">Email Us</a>
+                            <a href="#" className="direct-link">Join Volunteer WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="contact-form-wrap">
+                    <ContactForm />
+                </div>
+            </section>
+        </div>
     );
 }

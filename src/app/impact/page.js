@@ -1,20 +1,59 @@
-import ComingSoon from '@/components/ComingSoon';
+import ImpactDashboard from '@/components/ImpactDashboard';
 
 export const metadata = {
     title: 'Impact — Events MVP',
-    description: 'Live data on students impacted, fellowships awarded, and communities transformed.',
+    description: 'Measuring what matters: Students impacted, fellowships awarded, and community transformation metrics.',
 };
-
-const svgContent = '<svg width="100%" height="100%" viewBox="0 0 800 600"><ellipse cx="400" cy="300" rx="300" ry="200" fill="none" stroke="rgba(78,140,111,.07)" stroke-width="1"/><ellipse cx="400" cy="300" rx="200" ry="130" fill="none" stroke="rgba(78,140,111,.05)" stroke-width="1"/><line x1="100" y1="300" x2="700" y2="300" stroke="rgba(78,140,111,.04)" stroke-width="1"/><line x1="400" y1="100" x2="400" y2="500" stroke="rgba(78,140,111,.04)" stroke-width="1"/></svg>';
 
 export default function ImpactPage() {
     return (
-        <ComingSoon
-            icon="🌍"
-            pageName="Impact"
-            title="Measuring What Matters"
-            subtitle="Live data on students impacted, fellowships awarded, and communities transformed — launching soon."
-            svgContent={svgContent}
-        />
+        <div className="impact-container">
+            {/* HERO */}
+            <section className="impact-hero">
+                <div className="hero-content">
+                    <p className="eyebrow">Data for Good</p>
+                    <h1 className="hero-title">
+                        Measuring what <em>Matters</em>
+                    </h1>
+                    <p className="hero-sub">
+                        Transparency is at our core. Here is a live look at the impact we are
+                        creating across India through our education and sustainability programs.
+                    </p>
+                </div>
+            </section>
+
+            {/* STATS DASHBOARD (Client Component) */}
+            <ImpactDashboard />
+
+            {/* FRAMEWORK FOCUS */}
+            <section className="impact-framework">
+                <div className="framework-split">
+                    <div className="f-content">
+                        <p className="section-label">Our Framework</p>
+                        <h2 className="section-title">Beyond the <em>Numbers</em></h2>
+                        <p>
+                            Impact isn't just about how many people we reach; it's about the depth
+                            of transformation. Our "WE HEAL THE EARTH" framework ensures that
+                            every educational milestone is tied to a sustainable future.
+                        </p>
+                        <div className="f-list">
+                            <div className="f-item">
+                                <strong>Social Responsibility</strong>
+                                <p>Fostering a sense of giving back in every student we support.</p>
+                            </div>
+                            <div className="f-item">
+                                <strong>Environmental Stewardship</strong>
+                                <p>Practical climate action integrated into rural fellowships.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="f-visual">
+                        <div className="visual-circle">
+                            <div className="v-inner">THE EARTH</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 }
