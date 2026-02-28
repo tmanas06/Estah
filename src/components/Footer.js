@@ -1,21 +1,21 @@
 import Link from 'next/link';
+import { Globe } from './Icons';
 
 export default function Footer() {
     return (
         <footer>
             <div className="footer-brand">
-                <h3>Events MVP</h3>
-                <p className="tagline">Run for a Child&apos;s Future</p>
+                <h3><Globe className="logo-icon" /> WE HEAL THE EARTH</h3>
+                <p className="tagline">Sustainability · Education · Empowerment</p>
                 <p>
-                    Empowering communities through education, entrepreneurship, and
-                    sustainability under the WE HEAL THE EARTH framework.
+                    A community-driven initiative empowering communities through education,
+                    entrepreneurship, and sustainability — healing the earth, one step at a time.
                 </p>
             </div>
 
             <div className="footer-col">
                 <h4>Quick Links</h4>
                 <Link href="/home-page">Home</Link>
-                <Link href="/about">About Us</Link>
                 <Link href="/events">Events</Link>
                 <Link href="/programs">Programs</Link>
                 <Link href="/impact">Impact</Link>

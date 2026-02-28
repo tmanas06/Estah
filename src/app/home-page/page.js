@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { Leaf, GraduationCap, Zap } from '@/components/Icons';
 
 export const metadata = {
-    title: 'Home — Events MVP',
-    description: 'Welcome to Events MVP — empowering communities through education, entrepreneurship, and sustainability.',
+    title: 'Home — WE HEAL THE EARTH',
+    description: 'WE HEAL THE EARTH — empowering communities through education, sustainability, and social impact.',
 };
 
 export default function HomePage() {
@@ -11,21 +12,21 @@ export default function HomePage() {
             {/* HERO SECTION */}
             <section className="home-hero">
                 <div className="hero-content">
-                    <p className="eyebrow">Events MVP · Established 2026</p>
+                    <p className="eyebrow">WE HEAL THE EARTH · Established 2026</p>
                     <h1 className="hero-title">
-                        Empowering the <em>Next Generation</em> of Global Citizens
+                        Healing the Earth Through <em>Education</em> and <em>Action</em>
                     </h1>
                     <p className="hero-sub">
-                        We are a community-driven platform dedicated to creating lasting impact through
-                        innovative education and sustainable solutions. Join the movement.
+                        We are a sustainability-driven initiative creating lasting impact through
+                        regenerative education and community transformation. Join the movement.
                     </p>
                     <div className="hero-ctas">
                         <Link href="/events" className="cta-btn primary">
                             Explore Events
                             <span className="btn-arrow">→</span>
                         </Link>
-                        <Link href="/about" className="cta-btn secondary">
-                            Our Story
+                        <Link href="/events" className="cta-btn secondary">
+                            Our Mission
                         </Link>
                     </div>
                 </div>
@@ -45,17 +46,17 @@ export default function HomePage() {
 
                 <div className="vision-grid">
                     <div className="vision-card">
-                        <div className="vision-icon">🌱</div>
+                        <div className="vision-icon"><Leaf size={32} /></div>
                         <h3>Sustainability</h3>
                         <p>Healing the earth through conscious living and regenerative educational frameworks.</p>
                     </div>
                     <div className="vision-card">
-                        <div className="vision-icon">🎓</div>
+                        <div className="vision-icon"><GraduationCap size={32} /></div>
                         <h3>Education</h3>
                         <p>Bridging the gap with scholarship exams and fellowships for every aspiring mind.</p>
                     </div>
                     <div className="vision-card">
-                        <div className="vision-icon">⚡</div>
+                        <div className="vision-icon"><Zap size={32} /></div>
                         <h3>Empowerment</h3>
                         <p>Providing the tools and networks for individual and community transformation.</p>
                     </div>

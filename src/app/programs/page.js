@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FileText, Handshake, Building2 } from '@/components/Icons';
 
 export const metadata = {
     title: 'Programs — Events MVP',
@@ -8,21 +9,21 @@ export const metadata = {
 const programs = [
     {
         title: 'Education Scholarship Exam',
-        icon: '📝',
+        icon: <FileText size={32} />,
         desc: 'Identifying and supporting brilliant minds from underprivileged backgrounds through merit-based scholarship programs.',
         tags: ['Education', 'Grassroots'],
         color: 'var(--sky)'
     },
     {
         title: 'Rural Fellowship Program',
-        icon: '🤝',
+        icon: <Handshake size={32} />,
         desc: 'A 2-year dedicated program for young leaders to work directly with rural communities on education and sustainability.',
         tags: ['Leadership', 'Impact'],
         color: 'var(--coral)'
     },
     {
         title: 'Sustainable Schools',
-        icon: '🏫',
+        icon: <Building2 size={32} />,
         desc: 'Integrating green energy, zero-waste practices, and environmental education into the core of Indian schools.',
         tags: ['Sustainability', 'Innovation'],
         color: 'var(--lime)'

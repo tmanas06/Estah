@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useCallback } from 'react';
+import { Globe } from './Icons';
 
 const navItems = [
     { name: 'Home', path: '/home-page', soon: false },
-    { name: 'About Us', path: '/about', soon: false },
     { name: 'Events', path: '/events', soon: false },
     { name: 'Programs', path: '/programs', soon: false },
     { name: 'Impact', path: '/impact', soon: false },
@@ -40,7 +40,7 @@ export default function Navbar() {
         <>
             <nav className="nav" role="navigation" aria-label="Main navigation">
                 <Link href="/events" className="nav-logo">
-                    Events MVP
+                    <Globe className="logo-icon" /> WE HEAL THE EARTH
                 </Link>
 
                 <div className="nav-links" id="navLinks">

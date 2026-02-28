@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect, createContext, useContext } from 'react';
+import { MessageSquare } from './Icons';
 
 const ToastContext = createContext(null);
 
@@ -15,7 +16,7 @@ let toastId = 0;
 export function ToastProvider({ children }) {
     const [toasts, setToasts] = useState([]);
 
-    const addToast = useCallback(({ icon = '🎉', title, message, type = 'success', duration = 4000 }) => {
+    const addToast = useCallback(({ icon = null, title, message, type = 'success', duration = 4000 }) => {
         const id = ++toastId;
         setToasts((prev) => [...prev, { id, icon, title, message, type, duration, exiting: false }]);
 
@@ -48,7 +49,9 @@ export function ToastProvider({ children }) {
                         style={{ '--toast-dur': `${toast.duration}ms` }}
                         role="alert"
                     >
-                        <span className="toast-icon">{toast.icon}</span>
+                        <div className="toast-icon">
+                            <MessageSquare size={20} />
+                        </div>
                         <div className="toast-content">
                             {toast.title && <div className="toast-title">{toast.title}</div>}
                             {toast.message && <div className="toast-message">{toast.message}</div>}

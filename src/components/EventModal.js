@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback, useState } from 'react';
+import { Calendar, MapPin, Ticket, Trophy, Star, Leaf, Building2, Ban } from './Icons';
 
 export default function EventModal({ isOpen, onClose }) {
     const overlayRef = useRef(null);
@@ -99,21 +100,21 @@ export default function EventModal({ isOpen, onClose }) {
                     {/* Info Chips */}
                     <div className="modal-chips">
                         <div className="modal-chip">
-                            <span className="chip-icon">📅</span>
+                            <span className="chip-icon"><Calendar size={20} /></span>
                             <div>
                                 <div className="chip-label">Date &amp; Time</div>
                                 <div className="chip-value">March 22, 2026 · 12:00 PM – 4:00 PM</div>
                             </div>
                         </div>
                         <div className="modal-chip">
-                            <span className="chip-icon">📍</span>
+                            <span className="chip-icon"><MapPin size={20} /></span>
                             <div>
                                 <div className="chip-label">Venue</div>
                                 <div className="chip-value">Gachibowli Stadium, Hyderabad</div>
                             </div>
                         </div>
                         <div className="modal-chip">
-                            <span className="chip-icon">🎫</span>
+                            <span className="chip-icon"><Ticket size={20} /></span>
                             <div>
                                 <div className="chip-label">Entry</div>
                                 <div className="chip-value">Free · 0 Tickets Remaining</div>
@@ -181,19 +182,19 @@ export default function EventModal({ isOpen, onClose }) {
                         <h3 className="modal-section-title">2025 Award Categories</h3>
                         <div className="awards-grid">
                             <div className="award-card">
-                                <span className="award-icon">🏆</span> Education Innovator of the Year
+                                <span className="award-icon"><Trophy size={18} /></span> Education Innovator of the Year
                             </div>
                             <div className="award-card">
-                                <span className="award-icon">⭐</span> Youth Changemaker Award
+                                <span className="award-icon"><Star size={18} /></span> Youth Changemaker Award
                             </div>
                             <div className="award-card">
-                                <span className="award-icon">🌿</span> Sustainability Champion in Education
+                                <span className="award-icon"><Leaf size={18} /></span> Sustainability Champion in Education
                             </div>
                             <div className="award-card">
-                                <span className="award-icon">🏛️</span> Sustainable Education Institution of the Year
+                                <span className="award-icon"><Building2 size={18} /></span> Sustainable Education Institution of the Year
                             </div>
                             <div className="award-card">
-                                <span className="award-icon">💼</span> Corporate Leadership in Education
+                                <span className="award-icon"><Users size={18} /></span> Corporate Leadership in Education
                             </div>
                         </div>
                     </div>
@@ -235,7 +236,7 @@ export default function EventModal({ isOpen, onClose }) {
                         disabled
                         aria-label="Sold out, no tickets available"
                     >
-                        🚫 Sold Out — No Tickets Available
+                        <Ban size={20} style={{ marginRight: '8px' }} /> Sold Out — No Tickets Available
                     </button>
                 </div>
             </div>

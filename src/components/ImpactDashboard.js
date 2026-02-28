@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { GraduationCap, Users, Building2, Globe } from './Icons';
 
 const stats = [
-    { label: 'Students Impacted', target: 2500, suffix: '+', icon: '🎓' },
-    { label: 'Active Participants', target: 70, suffix: '+', icon: '🏃' },
-    { label: 'Partner Institutions', target: 25, suffix: '', icon: '🏛️' },
-    { label: 'Lives to Impact', target: 4000000, suffix: '', icon: '🌏' }
+    { label: 'Students Impacted', target: 2500, suffix: '+', icon: <GraduationCap size={40} /> },
+    { label: 'Active Participants', target: 70, suffix: '+', icon: <Users size={40} /> },
+    { label: 'Partner Institutions', target: 25, suffix: '', icon: <Building2 size={40} /> },
+    { label: 'Lives to Impact', target: 4000000, suffix: '', icon: <Globe size={40} /> }
 ];
 
 function CountUp({ target, duration = 2000 }) {

@@ -10,7 +10,7 @@ function fireConfetti(canvas) {
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    const colors = ['#B8F03E', '#FF6B6B', '#64D2FF', '#B388FF', '#FFE156', '#FFFFFF'];
+    const colors = ['#4E8C6F', '#C9A84C', '#7CB5A0', '#8BA888', '#D4A843', '#E8E2D6'];
     const particles = [];
 
     for (let i = 0; i < 120; i++) {
@@ -55,17 +55,9 @@ function fireConfetti(canvas) {
     requestAnimationFrame(draw);
 }
 
-const emojis = [
-    { emoji: '🎓', top: '15%', left: '75%', dur: '7s', delay: '0s' },
-    { emoji: '🌍', top: '25%', left: '85%', dur: '9s', delay: '1s' },
-    { emoji: '🏃', top: '60%', left: '80%', dur: '8s', delay: '0.5s' },
-    { emoji: '📚', top: '40%', left: '90%', dur: '10s', delay: '2s' },
-    { emoji: '🌱', top: '70%', left: '70%', dur: '7.5s', delay: '1.5s' },
-    { emoji: '💡', top: '10%', left: '65%', dur: '8.5s', delay: '0.8s' },
-    { emoji: '🎊', top: '50%', left: '92%', dur: '9.5s', delay: '2.5s' },
-];
+const emojis = [];
 
-const tickerText = '🏃 RUN FOR EDUCATION — 22 MARCH 2026 — GACHIBOWLI STADIUM, HYDERABAD — FREE ENTRY — SOLD OUT — 70+ PARTICIPANTS — WE HEAL THE EARTH — EVENTS MVP';
+const tickerText = 'RUN FOR EDUCATION — 22 MARCH 2026 — GACHIBOWLI STADIUM, HYDERABAD — FREE ENTRY — 70+ PARTICIPANTS — WE HEAL THE EARTH — SUSTAINABILITY IN ACTION';
 
 export default function EventsPage() {
     const [modalOpen, setModalOpen] = useState(false);
@@ -84,7 +76,6 @@ export default function EventsPage() {
         // Toast notification on events loaded
         const toastTimer = setTimeout(() => {
             addToast({
-                icon: '🎊',
                 title: 'Events Loaded!',
                 message: '1 upcoming event found — Run for Education on March 22',
                 type: 'success',
@@ -122,7 +113,7 @@ export default function EventsPage() {
                 ))}
 
                 <div className="hero-content">
-                    <p className="eyebrow">Events MVP · Events 2026</p>
+                    <p className="eyebrow">WE HEAL THE EARTH · Events 2026</p>
                     <h1 className="hero-title">
                         Upcoming <em>Events</em>
                     </h1>
