@@ -55,8 +55,6 @@ function fireConfetti(canvas) {
     requestAnimationFrame(draw);
 }
 
-const emojis = [];
-
 const tickerText = 'RUN FOR EDUCATION — 22 MARCH 2026 — GACHIBOWLI STADIUM, HYDERABAD — FREE ENTRY — 70+ PARTICIPANTS — WE HEAL THE EARTH — SUSTAINABILITY IN ACTION';
 
 export default function EventsPage() {
@@ -96,21 +94,6 @@ export default function EventsPage() {
             {/* Hero */}
             <section className="events-hero">
                 <HeroBackground />
-                {/* Floating Emoji Blobs */}
-                {emojis.map((e, i) => (
-                    <span
-                        key={i}
-                        className="emoji-blob"
-                        style={{
-                            top: e.top,
-                            left: e.left,
-                            '--dur': e.dur,
-                            '--delay': e.delay,
-                        }}
-                    >
-                        {e.emoji}
-                    </span>
-                ))}
 
                 <div className="hero-content">
                     <p className="eyebrow">WE HEAL THE EARTH · Events 2026</p>
@@ -147,7 +130,7 @@ export default function EventsPage() {
                         <span key={i}>
                             {tickerText.split(' — ').map((seg, j) => (
                                 <span key={j}>
-                                    {seg} <span className="sep">✦</span>{' '}
+                                    {seg} <span className="sep">•</span>{' '}
                                 </span>
                             ))}
                         </span>
