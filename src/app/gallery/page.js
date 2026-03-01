@@ -1,4 +1,5 @@
 import GalleryGrid from '@/components/GalleryGrid';
+import HeroBackground from '@/components/HeroBackground';
 
 export const metadata = {
     title: 'Gallery — Events MVP',
@@ -10,6 +11,7 @@ export default function GalleryPage() {
         <div className="gallery-container">
             {/* HERO */}
             <section className="gallery-hero">
+                <HeroBackground />
                 <div className="hero-content">
                     <p className="eyebrow">Visual Journey</p>
                     <h1 className="hero-title">

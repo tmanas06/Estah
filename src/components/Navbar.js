@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useCallback } from 'react';
 import { Globe } from './Icons';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const navItems = [
     { name: 'Home', path: '/home-page', soon: false },
@@ -57,16 +58,19 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                <button
-                    className={`hamburger${mobileOpen ? ' open' : ''}`}
-                    id="hamburger"
-                    onClick={toggleMobile}
-                    aria-label="Toggle menu"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <ThemeSwitcher />
+                    <button
+                        className={`hamburger${mobileOpen ? ' open' : ''}`}
+                        id="hamburger"
+                        onClick={toggleMobile}
+                        aria-label="Toggle menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </nav>
 
             {/* Mobile Overlay */}

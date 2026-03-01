@@ -1,4 +1,5 @@
 import ContactForm from '@/components/ContactForm';
+import HeroBackground from '@/components/HeroBackground';
 
 export const metadata = {
     title: 'Contact — Events MVP',
@@ -10,6 +11,7 @@ export default function ContactPage() {
         <div className="contact-container">
             {/* HERO */}
             <section className="contact-hero">
+                <HeroBackground />
                 <div className="hero-content">
                     <p className="eyebrow">Connect</p>
                     <h1 className="hero-title">

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Leaf, GraduationCap, Zap } from '@/components/Icons';
+import HeroBackground from '@/components/HeroBackground';
 
 export const metadata = {
     title: 'Home — WE HEAL THE EARTH',
@@ -11,6 +12,7 @@ export default function HomePage() {
         <div className="home-container">
             {/* HERO SECTION */}
             <section className="home-hero">
+                <HeroBackground />
                 <div className="hero-content">
                     <p className="eyebrow">WE HEAL THE EARTH · Established 2026</p>
                     <h1 className="hero-title">

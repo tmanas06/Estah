@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FileText, Handshake, Building2 } from '@/components/Icons';
+import HeroBackground from '@/components/HeroBackground';
 
 export const metadata = {
     title: 'Programs — Events MVP',
@@ -35,6 +36,7 @@ export default function ProgramsPage() {
         <div className="programs-container">
             {/* HERO */}
             <section className="programs-hero">
+                <HeroBackground />
                 <div className="hero-content">
                     <p className="eyebrow">Initiatives</p>
                     <h1 className="hero-title">

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import EventCard from '@/components/EventCard';
 import EventModal from '@/components/EventModal';
 import { useToast } from '@/components/MobileToast';
+import HeroBackground from '@/components/HeroBackground';
 
 // Confetti explosion
 function fireConfetti(canvas) {
@@ -96,6 +97,7 @@ export default function EventsPage() {
 
             {/* Hero */}
             <section className="events-hero">
+                <HeroBackground />
                 {/* Floating Emoji Blobs */}
                 {emojis.map((e, i) => (
                     <span

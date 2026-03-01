@@ -1,4 +1,5 @@
 import ImpactDashboard from '@/components/ImpactDashboard';
+import HeroBackground from '@/components/HeroBackground';
 
 export const metadata = {
     title: 'Impact — Events MVP',
@@ -10,6 +11,7 @@ export default function ImpactPage() {
         <div className="impact-container">
             {/* HERO */}
             <section className="impact-hero">
+                <HeroBackground />
                 <div className="hero-content">
                     <p className="eyebrow">Data for Good</p>
                     <h1 className="hero-title">
