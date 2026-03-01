@@ -3,17 +3,22 @@
 import { useState } from 'react';
 import { Calendar, MapPin } from './Icons';
 
-export default function EventCard({ onOpenModal }) {
+export default function EventCard() {
     const [imgError, setImgError] = useState(false);
+
+    const handleRedirect = (e) => {
+        e.stopPropagation();
+        window.open('https://skillbloomer.com/events/run-for-education', '_blank', 'noopener,noreferrer');
+    };
 
     return (
         <article
             className="event-card"
-            onClick={onOpenModal}
+            onClick={handleRedirect}
             tabIndex={0}
             role="button"
             aria-label="View Run for Education event details"
-            onKeyDown={(e) => e.key === 'Enter' && onOpenModal()}
+            onKeyDown={(e) => e.key === 'Enter' && handleRedirect(e)}
         >
             <div className="card-img-wrap">
                 {!imgError ? (
@@ -24,7 +29,9 @@ export default function EventCard({ onOpenModal }) {
                         onError={() => setImgError(true)}
                     />
                 ) : (
-                    <div className="card-img-fallback"><Users size={40} /></div>
+                    <div className="card-img-fallback-wrap">
+                        <div className="card-img-fallback">ES</div>
+                    </div>
                 )}
                 <div className="card-img-overlay"></div>
                 <span className="card-date-badge">22 MAR</span>
