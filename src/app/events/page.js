@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import EventCard from '@/components/EventCard';
-import EventModal from '@/components/EventModal';
 import { useToast } from '@/components/MobileToast';
 import HeroBackground from '@/components/HeroBackground';
 
@@ -61,7 +60,6 @@ const emojis = [];
 const tickerText = 'RUN FOR EDUCATION — 22 MARCH 2026 — GACHIBOWLI STADIUM, HYDERABAD — FREE ENTRY — 70+ PARTICIPANTS — WE HEAL THE EARTH — SUSTAINABILITY IN ACTION';
 
 export default function EventsPage() {
-    const [modalOpen, setModalOpen] = useState(false);
     const [activeFilter, setActiveFilter] = useState('All Events');
     const confettiRef = useRef(null);
     const { addToast } = useToast();
@@ -175,12 +173,9 @@ export default function EventsPage() {
             <section className="events-section">
                 <p className="section-label">All Upcoming Events · 1 Result</p>
                 <div className="events-grid">
-                    <EventCard onOpenModal={() => setModalOpen(true)} />
+                    <EventCard />
                 </div>
             </section>
-
-            {/* Modal */}
-            <EventModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
         </>
     );
 }
