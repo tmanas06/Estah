@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { TreeLoader } from './TreeLoader';
 
 export default function GalleryGrid() {
     const [images, setImages] = useState([]);
@@ -34,29 +35,29 @@ export default function GalleryGrid() {
     if (loading) {
         return (
             <div className="gallery-status">
-                <div className="loader"></div>
-                <p>Curating our impact journey...</p>
+                <TreeLoader size={80} />
+                <p className="loading-text">Curating our impact journey...</p>
                 <style jsx>{`
                     .gallery-status {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
-                        padding: 100px 20px;
+                        padding: 120px 20px;
                         color: var(--text);
                         text-align: center;
+                        animation: fadeIn 0.5s ease-out;
                     }
-                    .loader {
-                        width: 40px;
-                        height: 40px;
-                        border: 3px solid var(--lime);
-                        border-top-color: transparent;
-                        border-radius: 50%;
-                        animation: spin 1s linear infinite;
-                        margin-bottom: 20px;
+                    .loading-text {
+                        margin-top: 30px;
+                        font-family: var(--font-outfit);
+                        font-weight: 600;
+                        letter-spacing: 0.02em;
+                        opacity: 0.8;
                     }
-                    @keyframes spin {
-                        to { transform: rotate(360deg); }
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(10px); }
+                        to { opacity: 1; transform: translateY(0); }
                     }
                 `}</style>
             </div>
