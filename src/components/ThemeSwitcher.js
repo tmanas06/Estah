@@ -2,65 +2,75 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { Sun, Moon, Leaf, Droplets } from './Icons';
 
 const themes = [
-    { id: 'light', name: 'Light', color: '#F5F0E8', icon: '☀️' },
-    { id: 'dark', name: 'Dark', color: '#0C1A0F', icon: '🌙' },
-    { id: 'green', name: 'Green', color: '#1B3C22', icon: '🌳' },
-    { id: 'blue', name: 'Blue', color: '#0A192F', icon: '🌊' },
+  { id: 'light', name: 'Light', color: '#F5F0E8', icon: Sun },
+  { id: 'dark', name: 'Dark', color: '#0C1A0F', icon: Moon },
+  { id: 'green', name: 'Green', color: '#1B3C22', icon: Leaf },
+  { id: 'blue', name: 'Blue', color: '#0A192F', icon: Droplets },
 ];
 
 export default function ThemeSwitcher() {
-    const { theme, toggleTheme } = useTheme();
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+  const { theme, toggleTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsOpen(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-    return (
-        <div className="theme-switcher" ref={dropdownRef}>
-            <button
-                className="theme-toggle-btn"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Select Theme"
-                title="Change Theme"
-            >
-                <span className="current-theme-icon">
-                    {themes.find(t => t.id === theme)?.icon || '🎨'}
-                </span>
-            </button>
+  const CurrentIcon = themes.find(t => t.id === theme)?.icon || Sun;
 
-            {isOpen && (
-                <div className="theme-dropdown">
-                    <p className="dropdown-title">Choose Theme</p>
-                    <div className="theme-options">
-                        {themes.map((t) => (
-                            <button
-                                key={t.id}
-                                className={`theme-option ${theme === t.id ? 'active' : ''}`}
-                                onClick={() => {
-                                    toggleTheme(t.id);
-                                    setIsOpen(false);
-                                }}
-                            >
-                                <span className="option-color" style={{ backgroundColor: t.color }}></span>
-                                <span className="option-name">{t.name}</span>
-                                {theme === t.id && <span className="active-check">✓</span>}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            )}
+  return (
+    <div className="theme-switcher" ref={dropdownRef}>
+      <button
+        className="theme-toggle-btn"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Select Theme"
+        title="Change Theme"
+      >
+        <span className="current-theme-icon">
+          <CurrentIcon size={20} />
+        </span>
+      </button>
 
-            <style jsx>{`
+      {isOpen && (
+        <div className="theme-dropdown">
+          <p className="dropdown-title">Choose Theme</p>
+          <div className="theme-options">
+            {themes.map((t) => {
+              const Icon = t.icon;
+              return (
+                <button
+                  key={t.id}
+                  className={`theme-option ${theme === t.id ? 'active' : ''}`}
+                  onClick={() => {
+                    toggleTheme(t.id);
+                    setIsOpen(false);
+                  }}
+                >
+                  <span className="option-icon-wrapper">
+                    <Icon size={16} />
+                  </span>
+                  <span className="option-name">{t.name}</span>
+                  {theme === t.id && (
+                    <div className="active-indicator"></div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      <style jsx>{`
         .theme-switcher {
           position: relative;
           z-index: 1002;
@@ -133,11 +143,15 @@ export default function ThemeSwitcher() {
           background: rgba(78, 140, 111, 0.1);
           border-color: var(--lime);
         }
-        .option-color {
-          width: 16px;
-          height: 16px;
-          border-radius: 4px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+        .option-icon-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.03);
+          color: var(--lime);
         }
         .option-name {
           font-size: 0.85rem;
@@ -145,12 +159,14 @@ export default function ThemeSwitcher() {
           color: var(--text);
           flex: 1;
         }
-        .active-check {
-          color: var(--lime);
-          font-weight: 800;
-          font-size: 0.8rem;
+        .active-indicator {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--lime);
+          box-shadow: 0 0 8px var(--lime);
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
