@@ -309,6 +309,41 @@ img {
     var(--bg);
 }
 
+.events-hero::after,
+.home-hero::after,
+.programs-hero::after,
+.impact-hero::after,
+.gallery-hero::after,
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  transform: translateY(-50%);
+  width: 520px;
+  height: 520px;
+  background: url('/earth-healing-bg.png') center / contain no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+  filter: saturate(0.7);
+  animation: earthPulse 6s ease-in-out infinite;
+}
+
+@keyframes earthPulse {
+
+  0%,
+  100% {
+    opacity: 0.10;
+    transform: translateY(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.14;
+    transform: translateY(-50%) scale(1.03);
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -1907,6 +1942,7 @@ footer {
   align-items: center;
   padding: 80px 60px;
   position: relative;
+  overflow: hidden;
   background: radial-gradient(circle at 10% 10%, rgba(78, 140, 111, .06) 0%, transparent 40%),
     radial-gradient(circle at 90% 90%, rgba(201, 168, 76, .04) 0%, transparent 40%);
 }
@@ -2269,6 +2305,8 @@ footer {
 
 .programs-hero {
   padding: 80px 60px 40px;
+  position: relative;
+  overflow: hidden;
   background: radial-gradient(circle at 20% 80%, rgba(201, 168, 76, .04) 0%, transparent 40%);
 }
 
@@ -2419,6 +2457,8 @@ footer {
 
 .impact-hero {
   padding: 100px 60px 40px;
+  position: relative;
+  overflow: hidden;
   background: radial-gradient(circle at 80% 80%, rgba(78, 140, 111, .05) 0%, transparent 40%);
 }
 
@@ -2592,6 +2632,8 @@ footer {
 
 .gallery-hero {
   padding: 80px 60px 40px;
+  position: relative;
+  overflow: hidden;
   background: radial-gradient(circle at 50% 50%, rgba(78, 140, 111, .05) 0%, transparent 50%);
   text-align: center;
 }
@@ -2694,6 +2736,8 @@ footer {
 
 .contact-hero {
   padding: 80px 60px 40px;
+  position: relative;
+  overflow: hidden;
   background: radial-gradient(circle at 10% 90%, rgba(78, 140, 111, .05) 0%, transparent 40%);
 }
 
