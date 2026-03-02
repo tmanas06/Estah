@@ -2643,6 +2643,42 @@ footer {
   letter-spacing: -0.02em;
 }
 
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: white;
+  padding: 2px;
+}
+
+.logo-img-footer {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: white;
+  padding: 2px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.hero-brand-mark {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: white;
+  padding: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 .logo-icon {
   color: var(--accent);
   stroke-width: 2.5px;

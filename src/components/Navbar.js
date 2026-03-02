@@ -42,8 +42,9 @@ export default function Navbar() {
     return (
         <>
             <nav className="nav" role="navigation" aria-label="Main navigation">
-                <Link href="/events" className="nav-logo">
-                    <Globe className="logo-icon" /> WE HEAL THE EARTH
+                <Link href="/home-page" className="nav-logo">
+                    <img src="/estah-logo.png" alt="Estah Logo" className="logo-img" />
+                    WE HEAL THE EARTH
                 </Link>
 
                 <div className="nav-links" id="navLinks">

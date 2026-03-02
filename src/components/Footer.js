@@ -5,7 +5,10 @@ export default function Footer() {
     return (
         <footer>
             <div className="footer-brand">
-                <h3><Globe className="logo-icon" /> WE HEAL THE EARTH</h3>
+                <h3>
+                    <img src="/estah-logo.png" alt="Estah Logo" className="logo-img-footer" />
+                    WE HEAL THE EARTH
+                </h3>
                 <p className="tagline">Sustainability · Education · Empowerment</p>
                 <p>
                     A community-driven initiative empowering communities through education,

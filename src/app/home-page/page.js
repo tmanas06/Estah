@@ -31,6 +31,9 @@ export default function HomePage() {
             <section className="home-hero">
                 <HeroBackground />
                 <div className="hero-content">
+                    <div className="hero-brand-mark">
+                        <img src="/estah-logo.png" alt="Estah Logo" className="hero-logo-img" />
+                    </div>
                     <p className="eyebrow">WE HEAL THE EARTH · Established 2026</p>
                     <h1 className="hero-title">
                         Healing the Earth Through <em>Education</em> and <em>Action</em>
