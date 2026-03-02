@@ -11,9 +11,10 @@ const navItems = [
     { name: 'Events', path: '/events', soon: false },
     { name: 'planet earth', path: '/programs', soon: false },
     { name: 'Blog', path: '/blog', soon: false },
-    // { name: 'Impact', path: '/impact', soon: false },
     { name: 'Gallery', path: '/gallery', soon: false },
-    // { name: 'Contact', path: '/contact', soon: false },
+    { name: 'FAQ', path: '/faq', soon: false },
+    { name: 'Donate', path: '/donate', soon: false },
+
 ];
 
 export default function Navbar() {
