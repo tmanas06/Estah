@@ -172,7 +172,7 @@ export default function ProgramsPage() {
                     text-transform: uppercase;
                 }
                 .hero-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: clamp(3rem, 7vw, 5rem);
                     line-height: 0.95;
                     margin-bottom: 32px;
@@ -236,7 +236,7 @@ export default function ProgramsPage() {
                     font-weight: 700;
                 }
                 .p-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: 1.6rem;
                     margin-bottom: 16px;
                     line-height: 1.2;
@@ -275,7 +275,7 @@ export default function ProgramsPage() {
                     border: 1px solid rgba(255, 255, 255, 0.05);
                 }
                 .cta-box h2 {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: 2.5rem;
                     margin-bottom: 20px;
                 }

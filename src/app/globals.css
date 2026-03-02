@@ -1,6 +1,6 @@
 /* ===========================
       WE HEAL THE EARTH — Organic Earth Aesthetic
-   Syne + Nunito · Deep Forest Greens · Warm Golds · Soft Glows
+   Inter Sans · Deep Forest Greens · Mint & White Accents
    =========================== */
 
 /* RESET */
@@ -35,11 +35,13 @@
   --text-dark: #000000;
   --muted: #5D7052;
   --lime: #4E8C6F;
-  --coral: #C9A84C;
+  --coral: #FFFFFF;
+  /* White instead of gold */
   --sky: #3B7A8C;
   --purple: #6F8C6B;
-  --yellow: #B88A2D;
-  --gold: #C9A84C;
+  --yellow: #E8E2D6;
+  /* Neutralized to warmth */
+  --gold: #FFFFFF;
   --nav-bg: rgba(245, 240, 232, 0.92);
 }
 
@@ -54,11 +56,11 @@
   --text-dark: #1A1A18;
   --muted: #8B9A82;
   --lime: #4E8C6F;
-  --coral: #C9A84C;
+  --coral: #FFFFFF;
   --sky: #7CB5A0;
   --purple: #8BA888;
-  --yellow: #D4A843;
-  --gold: #C9A84C;
+  --yellow: #F5F0E8;
+  --gold: #FFFFFF;
   --nav-bg: rgba(17, 17, 16, 0.92);
 }
 
@@ -73,11 +75,12 @@
   --text-dark: #0A110B;
   --muted: #7BA681;
   --lime: #8BC34A;
-  --coral: #FFEB3B;
+  --coral: #F1F8E9;
+  /* Mint White instead of Neon Yellow */
   --sky: #4DB6AC;
   --purple: #9CCC65;
-  --yellow: #FBC02D;
-  --gold: #FBC02D;
+  --yellow: #D1E8D5;
+  --gold: #FFFFFF;
   --nav-bg: rgba(20, 33, 24, 0.95);
 }
 
@@ -92,11 +95,11 @@
   --text-dark: #020C1B;
   --muted: #8892B0;
   --lime: #64FFDA;
-  --coral: #F78888;
+  --coral: #E0F2F1;
   --sky: #00B4D8;
   --purple: #B388FF;
-  --yellow: #FFD700;
-  --gold: #FFD700;
+  --yellow: #A7FFEB;
+  --gold: #FFFFFF;
   --nav-bg: rgba(10, 25, 47, 0.95);
 }
 
@@ -2632,7 +2635,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
   text-transform: uppercase;

@@ -211,7 +211,7 @@ export default function HomePage() {
                     text-transform: uppercase;
                 }
                 .hero-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: clamp(3.5rem, 8vw, 6rem);
                     line-height: 0.95;
                     margin-bottom: 32px;
@@ -332,7 +332,7 @@ export default function HomePage() {
                     font-weight: 600;
                 }
                 .story-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: 3.5rem;
                     margin: 20px 0 32px;
                     line-height: 1.1;
@@ -379,7 +379,7 @@ export default function HomePage() {
                     margin-bottom: 16px;
                 }
                 .section-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: 3.5rem;
                     font-weight: 700;
                     letter-spacing: -0.01em;
@@ -401,7 +401,7 @@ export default function HomePage() {
                 }
                 .vision-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.04); border-color: var(--lime); }
                 .vision-icon { color: var(--lime); margin-bottom: 30px; }
-                .vision-card h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 16px; }
+                .vision-card h3 { font-family: var(--font-sans); font-size: 1.8rem; margin-bottom: 16px; }
                 .vision-card p { opacity: 0.7; line-height: 1.7; }
 
                 /* LATEST BLOGS */
@@ -427,7 +427,7 @@ export default function HomePage() {
                 }
                 .blog-preview-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: scale(1.02); }
                 .p-category { font-size: 0.75rem; font-weight: 900; color: var(--lime); text-transform: uppercase; margin-bottom: 20px; display: block; }
-                .p-title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 16px; line-height: 1.2; }
+                .p-title { font-family: var(--font-sans); font-size: 1.4rem; margin-bottom: 16px; line-height: 1.2; }
                 .p-excerpt { font-size: 0.95rem; opacity: 0.6; line-height: 1.6; margin-bottom: 24px; }
                 .p-link { font-weight: 800; color: var(--lime); display: flex; align-items: center; gap: 8px; }
                 .center-cta { text-align: center; margin-top: 60px; }
@@ -438,7 +438,7 @@ export default function HomePage() {
                     padding: 100px 4vw 160px;
                     text-align: center;
                 }
-                .partners-heading { font-family: var(--font-display); font-size: 2rem; opacity: 0.5; max-width: 600px; margin: 0 auto 60px; }
+                .partners-heading { font-family: var(--font-sans); font-size: 2rem; opacity: 0.5; max-width: 600px; margin: 0 auto 60px; }
                 .partners-grid {
                     display: flex;
                     flex-wrap: wrap;

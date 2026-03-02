@@ -234,7 +234,7 @@ export default function BlogPage() {
                     text-transform: uppercase;
                 }
                 .hero-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: clamp(3rem, 8vw, 5.5rem);
                     line-height: 0.95;
                     margin-bottom: 32px;
@@ -294,7 +294,7 @@ export default function BlogPage() {
                     display: block;
                 }
                 .post-title {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: 1.75rem;
                     line-height: 1.2;
                     margin-bottom: 16px;
@@ -383,7 +383,7 @@ export default function BlogPage() {
                     display: block;
                 }
                 .post-title-full {
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: clamp(2.5rem, 6vw, 4rem);
                     line-height: 1.1;
                     margin-bottom: 40px;
@@ -397,7 +397,7 @@ export default function BlogPage() {
                 }
                 .post-body-html :global(p) { margin-bottom: 30px; }
                 .post-body-html :global(h2) { 
-                    font-family: var(--font-display);
+                    font-family: var(--font-sans);
                     font-size: 2rem;
                     margin: 60px 0 30px;
                 }
