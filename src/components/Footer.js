@@ -36,7 +36,7 @@ export default function Footer() {
                         rel="noopener noreferrer"
                         style={{ color: 'var(--gold)' }}
                     >
-                        SkillBloomer
+                        Estah Society
                     </a>
                 </p>
                 <div className="social-row">
