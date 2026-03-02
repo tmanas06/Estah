@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Leaf, GraduationCap, Zap, ArrowRight, ExternalLink } from '@/components/Icons';
 import HeroBackground from '@/components/HeroBackground';
+import PhotoSlider from '@/components/PhotoSlider';
 import { TreeLoader } from '@/components/TreeLoader';
 
 export default function HomePage() {
@@ -29,6 +30,7 @@ export default function HomePage() {
         <div className="home-container">
             {/* HERO SECTION */}
             <section className="home-hero">
+                <PhotoSlider />
                 <HeroBackground />
                 <div className="hero-content">
                     <div className="hero-brand-mark">
@@ -80,7 +82,7 @@ export default function HomePage() {
                 <div className="story-grid">
                     <div className="story-image-wrap">
                         <img
-                            src="/Users/manas/.gemini/antigravity/brain/9ceacb18-b23f-49a0-8c8a-9efbea6d8e48/earth_healing_mission_story_1772461176474.png"
+                            src="/story-mission.png"
                             alt="Planting seeds of change"
                             className="story-main-img"
                         />
