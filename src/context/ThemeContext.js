@@ -21,8 +21,8 @@ export const ThemeProvider = ({ children }) => {
         localStorage.setItem('estah-theme', theme);
     }, [theme]);
 
-    const toggleTheme = (newTheme) => {
-        setTheme(newTheme);
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'green' ? 'blue' : 'green');
     };
 
     return (

@@ -1,170 +1,94 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { Sun, Moon, Leaf, Droplets } from './Icons';
-
-const themes = [
-  { id: 'light', name: 'Light', color: '#F5F0E8', icon: Sun },
-  { id: 'dark', name: 'Dark', color: '#0C1A0F', icon: Moon },
-  { id: 'green', name: 'Green', color: '#1B3C22', icon: Leaf },
-  { id: 'blue', name: 'Blue', color: '#0A192F', icon: Droplets },
-];
+import { Leaf, Droplets } from './Icons';
 
 export default function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const CurrentIcon = themes.find(t => t.id === theme)?.icon || Sun;
 
   return (
-    <div className="theme-switcher" ref={dropdownRef}>
+    <div className="theme-switcher">
       <button
         className="theme-toggle-btn"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Select Theme"
-        title="Change Theme"
+        onClick={toggleTheme}
+        aria-label="Toggle Theme"
+        title={`Switch to ${theme === 'green' ? 'Blue' : 'Green'} Theme`}
       >
-        <span className="current-theme-icon">
-          <CurrentIcon size={20} />
-        </span>
-      </button>
-
-      {isOpen && (
-        <div className="theme-dropdown">
-          <p className="dropdown-title">Choose Theme</p>
-          <div className="theme-options">
-            {themes.map((t) => {
-              const Icon = t.icon;
-              return (
-                <button
-                  key={t.id}
-                  className={`theme-option ${theme === t.id ? 'active' : ''}`}
-                  onClick={() => {
-                    toggleTheme(t.id);
-                    setIsOpen(false);
-                  }}
-                >
-                  <span className="option-icon-wrapper">
-                    <Icon size={16} />
-                  </span>
-                  <span className="option-name">{t.name}</span>
-                  {theme === t.id && (
-                    <div className="active-indicator"></div>
-                  )}
-                </button>
-              );
-            })}
+        <div className={`toggle-track ${theme}`}>
+          <div className="toggle-thumb">
+            {theme === 'green' ? <Leaf size={14} /> : <Droplets size={14} />}
           </div>
+          <span className="toggle-label">{theme === 'green' ? 'GREEN' : 'BLUE'}</span>
         </div>
-      )}
+      </button>
 
       <style jsx>{`
         .theme-switcher {
-          position: relative;
-          z-index: 1002;
+          display: flex;
+          align-items: center;
         }
         .theme-toggle-btn {
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1.5px solid var(--lime);
+          background: transparent;
+          border: none;
+          padding: 0;
           cursor: pointer;
-          transition: all 0.2s;
-          font-size: 1.2rem;
+          transition: transform 0.2s ease;
         }
         .theme-toggle-btn:hover {
-          background: rgba(255, 255, 255, 0.1);
           transform: scale(1.05);
         }
-        .theme-dropdown {
-          position: absolute;
-          top: calc(100% + 12px);
-          right: 0;
-          width: 180px;
-          background: var(--surface1);
-          border: 1.5px solid var(--lime);
-          border-radius: 12px;
-          padding: 12px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-          animation: slideIn 0.2s ease;
-        }
-        @keyframes slideIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .dropdown-title {
-          font-size: 0.75rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--muted);
-          margin-bottom: 12px;
-          padding-left: 4px;
-        }
-        .theme-options {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-        .theme-option {
+        .toggle-track {
+          position: relative;
+          width: 100px;
+          height: 36px;
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid var(--lime);
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding: 8px 10px;
-          border-radius: 8px;
-          background: transparent;
-          border: 1.5px solid transparent;
-          cursor: pointer;
-          transition: all 0.2s;
-          text-align: left;
-          width: 100%;
+          padding: 3px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .theme-option:hover {
-          background: rgba(255, 255, 255, 0.05);
-          border-color: rgba(255, 255, 255, 0.1);
+        .toggle-track.blue {
+          border-color: #64FFDA;
+          background: rgba(100, 255, 218, 0.05);
         }
-        .theme-option.active {
-          background: rgba(78, 140, 111, 0.1);
-          border-color: var(--lime);
-        }
-        .option-icon-wrapper {
+        .toggle-thumb {
+          position: absolute;
+          left: 3px;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: var(--lime);
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 24px;
-          height: 24px;
-          border-radius: 6px;
-          background: rgba(255, 255, 255, 0.03);
+          color: white;
+          box-shadow: 0 0 15px rgba(78, 140, 111, 0.4);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 2;
+        }
+        .blue .toggle-thumb {
+          left: 67px;
+          background: #64FFDA;
+          box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+          color: #0A192F;
+        }
+        .toggle-label {
+          width: 100%;
+          text-align: center;
+          font-size: 0.65rem;
+          font-weight: 900;
+          letter-spacing: 0.15em;
           color: var(--lime);
+          padding-left: 28px;
+          transition: all 0.3s ease;
         }
-        .option-name {
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: var(--text);
-          flex: 1;
-        }
-        .active-indicator {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--lime);
-          box-shadow: 0 0 8px var(--lime);
+        .blue .toggle-label {
+          padding-left: 0;
+          padding-right: 28px;
+          color: #64FFDA;
         }
       `}</style>
     </div>
