@@ -9,7 +9,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 const navItems = [
     { name: 'Home', path: '/home-page', soon: false },
     { name: 'Events', path: '/events', soon: false },
-    { name: 'Programs', path: '/programs', soon: false },
+    { name: 'planet earth', path: '/programs', soon: false },
     { name: 'Blog', path: '/blog', soon: false },
     // { name: 'Impact', path: '/impact', soon: false },
     { name: 'Gallery', path: '/gallery', soon: false },
