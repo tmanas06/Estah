@@ -31,8 +31,7 @@ export default function HeroBackground({ variant = 'default' }) {
 
             // Define colors based on theme
             let baseHue = 100; // Default green
-            if (theme === 'blue') baseHue = 200;
-            if (theme === 'light') baseHue = 110;
+            if (theme === 'ocean') baseHue = 200;
 
             // Floating leaf-like particles
             for (let i = 0; i < 18; i++) {
@@ -42,7 +41,7 @@ export default function HeroBackground({ variant = 'default' }) {
                     size: 2 + Math.random() * 4,
                     speedX: (Math.random() - 0.5) * 0.3,
                     speedY: -0.15 - Math.random() * 0.35,
-                    opacity: theme === 'light' ? 0.3 : 0.15 + Math.random() * 0.25,
+                    opacity: 0.15 + Math.random() * 0.25,
                     hue: baseHue + (Math.random() * 40 - 20),
                     wobble: Math.random() * Math.PI * 2,
                     wobbleSpeed: 0.01 + Math.random() * 0.02,
@@ -58,7 +57,7 @@ export default function HeroBackground({ variant = 'default' }) {
                     speedX: (Math.random() - 0.5) * 0.2,
                     speedY: (Math.random() - 0.5) * 0.2,
                     opacity: 0,
-                    maxOpacity: theme === 'light' ? 0.5 : 0.3 + Math.random() * 0.4,
+                    maxOpacity: 0.3 + Math.random() * 0.4,
                     phase: Math.random() * Math.PI * 2,
                     phaseSpeed: 0.015 + Math.random() * 0.02,
                     glowSize: 8 + Math.random() * 16,
