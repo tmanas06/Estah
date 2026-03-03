@@ -125,7 +125,7 @@ export default function HeroBackground({ variant = 'default' }) {
 
                 // Outer glow
                 let glowHue = f.isGold ? 42 : 140;
-                if (theme === 'blue') glowHue = f.isGold ? 42 : 200;
+                if (theme === 'ocean') glowHue = f.isGold ? 42 : 200;
 
                 const glowColor = `${glowHue}, 38%, 54%`;
                 const glow = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.glowSize);
@@ -136,7 +136,7 @@ export default function HeroBackground({ variant = 'default' }) {
                 ctx.fillRect(f.x - f.glowSize, f.y - f.glowSize, f.glowSize * 2, f.glowSize * 2);
 
                 // Core dot
-                ctx.fillStyle = f.isGold ? '#D4A843' : (theme === 'blue' ? '#00B4D8' : '#7CB5A0');
+                ctx.fillStyle = f.isGold ? '#D4A843' : (theme === 'ocean' ? '#00B4D8' : '#7CB5A0');
                 ctx.beginPath();
                 ctx.arc(f.x, f.y, f.size, 0, Math.PI * 2);
                 ctx.fill();

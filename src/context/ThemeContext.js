@@ -5,7 +5,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('green'); // Default to green
+    const [theme, setTheme] = useState('forest'); // Default to forest
 
     useEffect(() => {
         // Check local storage for theme preference
@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(prev => prev === 'green' ? 'blue' : 'green');
+        setTheme(prev => prev === 'forest' ? 'ocean' : 'forest');
     };
 
     return (

@@ -2,25 +2,35 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Leaf, GraduationCap, Zap, ArrowRight, ExternalLink } from '@/components/Icons';
+import { Leaf, GraduationCap, Zap, ArrowRight, ExternalLink, Calendar, MapPin } from '@/components/Icons';
 import HeroBackground from '@/components/HeroBackground';
 import PhotoSlider from '@/components/PhotoSlider';
+import EventCard from '@/components/EventCard';
 import { TreeLoader } from '@/components/TreeLoader';
 
 export default function HomePage() {
     const [latestBlogs, setLatestBlogs] = useState([]);
     const [loadingBlogs, setLoadingBlogs] = useState(true);
+    const [galleryImages, setGalleryImages] = useState([]);
+    const [loadingGallery, setLoadingGallery] = useState(true);
 
     useEffect(() => {
         const fetchLatest = async () => {
             try {
-                const response = await fetch('/api/blogs');
-                const data = await response.json();
-                setLatestBlogs(data.slice(0, 3));
+                // Fetch Blogs
+                const blogRes = await fetch('/api/blogs');
+                const blogData = await blogRes.json();
+                setLatestBlogs(Array.isArray(blogData) ? blogData.slice(0, 3) : []);
+
+                // Fetch Gallery
+                const galleryRes = await fetch('/api/gallery');
+                const galleryData = await galleryRes.json();
+                setGalleryImages(Array.isArray(galleryData) ? galleryData.slice(0, 4) : []);
             } catch (err) {
-                console.error('Failed to fetch latest blogs', err);
+                console.error('Failed to fetch latest data', err);
             } finally {
                 setLoadingBlogs(false);
+                setLoadingGallery(false);
             }
         };
         fetchLatest();
@@ -169,6 +179,139 @@ export default function HomePage() {
                 </div>
                 <div className="center-cta">
                     <Link href="/blog" className="view-all-btn">View All Historical Notes</Link>
+                </div>
+            </section>
+
+            {/* UPCOMING EVENTS STRIP */}
+            <section className="events-strip">
+                <div className="strip-container">
+                    <div className="strip-header">
+                        <div className="header-text">
+                            <p className="section-label">Join Us</p>
+                            <h2 className="strip-title">Upcoming <em>Events</em></h2>
+                        </div>
+                        <Link href="/events" className="strip-link">
+                            View All Events <ArrowRight size={18} />
+                        </Link>
+                    </div>
+                    <div className="events-row">
+                        <EventCard />
+                        <EventCard />
+                        <EventCard />
+                    </div>
+                </div>
+            </section>
+
+            {/* MOMENT GALLERY STRIP */}
+            <section className="photos-strip">
+                <div className="strip-container">
+                    <div className="strip-header">
+                        <div className="header-text">
+                            <p className="section-label">Gallery</p>
+                            <h2 className="strip-title">Moments <em>in Action</em></h2>
+                        </div>
+                        <Link href="/gallery" className="strip-link">
+                            See All Photos <ArrowRight size={18} />
+                        </Link>
+                    </div>
+                    <div className="photos-grid">
+                        {loadingGallery ? (
+                            <div className="loader-container"><TreeLoader size={40} /></div>
+                        ) : (
+                            galleryImages.map((img, i) => (
+                                <div key={i} className="photo-item">
+                                    <img src={img.src} alt={img.alt} loading="lazy" />
+                                    <div className="photo-overlay">
+                                        <span>{img.category}</span>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            {/* IMPACT FRAMEWORK */}
+            <section className="home-framework">
+                <div className="framework-container">
+                    <div className="framework-content">
+                        <p className="section-label">Impact Framework</p>
+                        <h2 className="framework-title">The Regenerative <em>Education Model</em></h2>
+                        <p className="framework-desc">
+                            We don&apos;t just teach; we transform. Our ecosystem is built on three pillars
+                            that ensure sustainable development from classroom to community.
+                        </p>
+                        <div className="framework-points">
+                            <div className="f-point">
+                                <div className="f-icon"><Zap size={24} /></div>
+                                <div className="f-text">
+                                    <h4>Dynamic Curriculum</h4>
+                                    <p>Scholarship exams and fellowships designed for modern environmental challenges.</p>
+                                </div>
+                            </div>
+                            <div className="f-point">
+                                <div className="f-icon"><Leaf size={24} /></div>
+                                <div className="f-text">
+                                    <h4>Rooted Action</h4>
+                                    <p>Grassroots community projects that put regenerative theory into practice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="framework-visual">
+                        <div className="visual-orb"></div>
+                        <img src="/story-mission.png" alt="Framework" />
+                    </div>
+                </div>
+            </section>
+
+            {/* INSTITUTIONAL PATHWAYS */}
+            <section className="home-pathways">
+                <div className="pathways-head center">
+                    <p className="section-label">Scale through Collaboration</p>
+                    <h2 className="section-title">Institutional <em>Pathways</em></h2>
+                </div>
+                <div className="pathways-grid">
+                    <div className="path-card">
+                        <div className="path-top">
+                            <span className="path-num">01</span>
+                            <GraduationCap size={32} />
+                        </div>
+                        <h3>Academic Alliances</h3>
+                        <p>Partnering with universities to integrate sustainability into mainstream higher education.</p>
+                    </div>
+                    <div className="path-card">
+                        <div className="path-top">
+                            <span className="path-num">02</span>
+                            <ExternalLink size={32} />
+                        </div>
+                        <h3>Corporate Synergy</h3>
+                        <p>Driving CSR initiatives that create measurable environmental and social ROI.</p>
+                    </div>
+                    <div className="path-card">
+                        <div className="path-top">
+                            <span className="path-num">03</span>
+                            <Zap size={32} />
+                        </div>
+                        <h3>Government Policy</h3>
+                        <p>Advising on educational frameworks that align with India 2047 sustainability goals.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* COMMUNITY CTA */}
+            <section className="home-community-cta">
+                <div className="cta-box">
+                    <div className="cta-inner">
+                        <h2 className="cta-title">Ready to <em>Heal the Earth?</em></h2>
+                        <p className="cta-sub">
+                            Join thousands of students, educators, and leaders in building a regenerative future.
+                        </p>
+                        <div className="cta-links">
+                            <Link href="/donate" className="cta-btn primary">Support the Cause</Link>
+                            <Link href="/volunteers" className="cta-btn secondary">Become a Volunteer</Link>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -427,59 +570,155 @@ export default function HomePage() {
                 .center-cta { text-align: center; margin-top: 60px; }
                 .view-all-btn { display: inline-block; padding: 18px 40px; background: transparent; border: 1px solid var(--lime); color: var(--lime); border-radius: 14px; font-weight: 800; text-decoration: none; }
 
-                /* PARTNERS */
-                .home-partners {
-                    padding: 100px 4vw 160px;
-                    text-align: center;
-                }
-                .partners-heading { font-family: var(--font-sans); font-size: 2rem; opacity: 0.5; max-width: 600px; margin: 0 auto 60px; }
-                .partners-grid {
+                .loader-container {
                     display: flex;
-                    flex-wrap: wrap;
                     justify-content: center;
-                    gap: 60px;
-                    opacity: 0.4;
+                    padding: 40px;
                 }
-                .partner-name { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.1em; }
+
+                /* STRIPS (EVENTS & PHOTOS) */
+                .events-strip, .photos-strip {
+                    padding: 100px 4vw;
+                    border-top: 1px solid rgba(255,255,255,0.05);
+                }
+                .strip-container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                }
+                .strip-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    margin-bottom: 50px;
+                }
+                .strip-title {
+                    font-family: var(--font-sans);
+                    font-size: var(--fs-h2);
+                    font-weight: 900;
+                    margin-top: 10px;
+                }
+                .strip-title em { font-style: italic; color: var(--lime); font-weight: 900; }
+                .strip-link {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-weight: 800;
+                    color: var(--lime);
+                    text-decoration: none;
+                }
+                .events-row {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 30px;
+                }
+                .photos-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 20px;
+                }
+                .photo-item {
+                    position: relative;
+                    aspect-ratio: 1;
+                    border-radius: 20px;
+                    overflow: hidden;
+                }
+                .photo-item img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+                .photo-item:hover img { transform: scale(1.1); }
+                .photo-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+                    display: flex;
+                    align-items: flex-end;
+                    padding: 20px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .photo-item:hover .photo-overlay { opacity: 1; }
+                .photo-overlay span { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--lime); }
+
+                /* IMPACT FRAMEWORK */
+                .home-framework {
+                    padding: 140px 4vw;
+                    background: var(--surface1);
+                }
+                .framework-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 80px;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    align-items: center;
+                }
+                .framework-title {
+                    font-family: var(--font-sans);
+                    font-size: var(--fs-h2);
+                    font-weight: 900;
+                    margin: 10px 0 24px;
+                }
+                .framework-title em { font-style: italic; color: var(--lime); font-weight: 900; }
+                .framework-desc { font-size: 1.15rem; opacity: 0.8; line-height: 1.7; margin-bottom: 40px; }
+                .framework-points { display: grid; gap: 30px; }
+                .f-point { display: flex; gap: 20px; }
+                .f-icon { color: var(--lime); }
+                .f-text h4 { font-family: var(--font-sans); font-size: 1.25rem; margin-bottom: 8px; }
+                .f-text p { opacity: 0.7; font-size: 0.95rem; }
+                .framework-visual { position: relative; }
+                .framework-visual img { width: 100%; border-radius: 40px; }
+
+                /* PATHWAYS */
+                .home-pathways {
+                    padding: 140px 4vw;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                }
+                .home-pathways .center { text-align: center; margin-bottom: 80px; }
+                .pathways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+                .path-card { 
+                    padding: 50px; 
+                    background: var(--surface1); 
+                    border-radius: 32px; 
+                    border: 1px solid rgba(255,255,255,0.05);
+                }
+                .path-top { display: flex; justify-content: space-between; align-items: center; color: var(--lime); margin-bottom: 30px; }
+                .path-num { font-size: 2.5rem; font-weight: 900; opacity: 0.1; color: var(--text); }
+                .path-card h3 { font-family: var(--font-sans); font-size: 1.5rem; margin-bottom: 16px; }
+                .path-card p { opacity: 0.7; line-height: 1.6; }
+
+                /* COMMUNITY CTA */
+                .home-community-cta {
+                    padding: 140px 4vw;
+                }
+                .cta-box {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: linear-gradient(135deg, var(--lime), #4E8C6F);
+                    border-radius: 48px;
+                    padding: 100px 40px;
+                    text-align: center;
+                    color: var(--text-dark);
+                }
+                .cta-title { font-family: var(--font-sans); font-size: 3.5rem; font-weight: 900; margin-bottom: 24px; }
+                .cta-title em { font-style: italic; color: white; }
+                .cta-sub { font-size: 1.4rem; opacity: 0.9; max-width: 700px; margin: 0 auto 48px; }
+                .cta-links { display: flex; gap: 20px; justify-content: center; }
+                .cta-box .primary { background: white; color: var(--text-dark); }
+                .cta-box .secondary { background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.2); color: var(--text-dark); }
 
                 @media (max-width: 1024px) {
-                    .story-grid, .vision-grid, .blog-preview-grid { 
-                        grid-template-columns: 1fr; 
-                        gap: 40px;
-                    }
-                    .story-image-wrap { margin-bottom: 40px; }
-                    .img-accent-card {
-                        bottom: -20px;
-                        right: 20px;
-                        padding: 20px;
-                        max-width: 200px;
-                    }
+                    .events-row, .photos-grid, .pathways-grid { grid-template-columns: 1fr; }
+                    .framework-container { grid-template-columns: 1fr; }
+                    .cta-title { font-size: 2.5rem; }
                 }
 
                 @media (max-width: 640px) {
-                    .hero-ctas {
-                        flex-direction: column;
-                        width: 100%;
-                    }
-                    .cta-btn {
-                        width: 100%;
-                        justify-content: center;
-                    }
-                    .home-hero {
-                        padding-top: 120px;
-                        min-height: auto;
-                    }
-                    .hero-sub {
-                        font-size: 1.1rem;
-                    }
-                    .img-accent-card {
-                        position: relative;
-                        bottom: 0;
-                        right: 0;
-                        margin-top: -40px;
-                        margin-left: 20px;
-                        max-width: calc(100% - 40px);
-                    }
+                    .strip-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+                    .cta-links { flex-direction: column; }
                 }
             `}</style>
         </div>

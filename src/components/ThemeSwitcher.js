@@ -13,13 +13,13 @@ export default function ThemeSwitcher() {
         className="theme-toggle-btn"
         onClick={toggleTheme}
         aria-label="Toggle Theme"
-        title={`Switch to ${theme === 'green' ? 'Blue' : 'Green'} Theme`}
+        title={`Switch to ${theme === 'forest' ? 'Ocean' : 'Forest'} Theme`}
       >
         <div className={`toggle-track ${theme}`}>
           <div className="toggle-thumb">
-            {theme === 'green' ? <Leaf size={14} /> : <Droplets size={14} />}
+            {theme === 'forest' ? <Leaf size={14} /> : <Droplets size={14} />}
           </div>
-          <span className="toggle-label">{theme === 'green' ? 'GREEN' : 'BLUE'}</span>
+          <span className="toggle-label">{theme === 'forest' ? 'FOREST' : 'OCEAN'}</span>
         </div>
       </button>
 
@@ -50,7 +50,7 @@ export default function ThemeSwitcher() {
           padding: 3px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .toggle-track.blue {
+        .toggle-track.ocean {
           border-color: #64FFDA;
           background: rgba(100, 255, 218, 0.05);
         }
@@ -69,7 +69,7 @@ export default function ThemeSwitcher() {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           z-index: 2;
         }
-        .blue .toggle-thumb {
+        .ocean .toggle-thumb {
           left: 67px;
           background: #64FFDA;
           box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
@@ -85,7 +85,7 @@ export default function ThemeSwitcher() {
           padding-left: 28px;
           transition: all 0.3s ease;
         }
-        .blue .toggle-label {
+        .ocean .toggle-label {
           padding-left: 0;
           padding-right: 28px;
           color: #64FFDA;
