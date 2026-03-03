@@ -172,19 +172,6 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* PARTNERS / GLOBAL REACH */}
-            <section className="home-partners">
-                <div className="partners-container">
-                    <h2 className="partners-heading">Driving Impact with <em>Institutional Partners</em></h2>
-                    <div className="partners-grid">
-                        <div className="partner-name">Estah Society</div>
-                        <div className="partner-name">Skill Bloomer</div>
-                        <div className="partner-name">Planet Run Network</div>
-                        <div className="partner-name">Regenerative Labs</div>
-                    </div>
-                </div>
-            </section>
-
             <style jsx>{`
                 .home-container {
                     background: var(--bg);
@@ -217,15 +204,15 @@ export default function HomePage() {
                 }
                 .hero-title {
                     font-family: var(--font-sans);
-                    font-size: clamp(3.5rem, 8vw, 6rem);
-                    line-height: 0.95;
-                    margin-bottom: 32px;
-                    font-weight: 700;
+                    font-size: var(--fs-h1);
+                    line-height: 1;
+                    margin-bottom: 24px;
+                    font-weight: 900;
                     letter-spacing: -0.03em;
                 }
                 .hero-title em {
                     font-style: italic;
-                    font-weight: 500;
+                    font-weight: 900;
                     color: var(--lime);
                 }
                 .hero-sub {
@@ -258,6 +245,7 @@ export default function HomePage() {
                     background: rgba(255,255,255,0.05);
                     border: 1px solid rgba(255,255,255,0.1);
                     backdrop-filter: blur(10px);
+                    color: var(--text);
                 }
                 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 
@@ -311,6 +299,7 @@ export default function HomePage() {
                     border-radius: 40px;
                     filter: saturate(1.1);
                     box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+                    display: block;
                 }
                 .img-accent-card {
                     position: absolute;
@@ -338,12 +327,12 @@ export default function HomePage() {
                 }
                 .story-title {
                     font-family: var(--font-sans);
-                    font-size: 3.5rem;
-                    margin: 20px 0 32px;
+                    font-size: var(--fs-h2);
+                    margin: 10px 0 24px;
                     line-height: 1.1;
-                    font-weight: 700;
+                    font-weight: 900;
                 }
-                .story-title em { font-style: italic; color: var(--lime); font-weight: 500; }
+                .story-title em { font-style: italic; color: var(--lime); font-weight: 900; }
                 .story-text {
                     font-size: 1.15rem;
                     opacity: 0.8;
@@ -385,11 +374,11 @@ export default function HomePage() {
                 }
                 .section-title {
                     font-family: var(--font-sans);
-                    font-size: 3.5rem;
-                    font-weight: 700;
+                    font-size: var(--fs-h2);
+                    font-weight: 900;
                     letter-spacing: -0.01em;
                 }
-                .section-title em { font-style: italic; color: var(--lime); font-weight: 500; }
+                .section-title em { font-style: italic; color: var(--lime); font-weight: 900; }
                 .vision-grid {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
@@ -454,8 +443,43 @@ export default function HomePage() {
                 .partner-name { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.1em; }
 
                 @media (max-width: 1024px) {
-                    .story-grid, .vision-grid, .blog-preview-grid { grid-template-columns: 1fr; }
-                    .hero-title { font-size: 4rem; }
+                    .story-grid, .vision-grid, .blog-preview-grid { 
+                        grid-template-columns: 1fr; 
+                        gap: 40px;
+                    }
+                    .story-image-wrap { margin-bottom: 40px; }
+                    .img-accent-card {
+                        bottom: -20px;
+                        right: 20px;
+                        padding: 20px;
+                        max-width: 200px;
+                    }
+                }
+
+                @media (max-width: 640px) {
+                    .hero-ctas {
+                        flex-direction: column;
+                        width: 100%;
+                    }
+                    .cta-btn {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                    .home-hero {
+                        padding-top: 120px;
+                        min-height: auto;
+                    }
+                    .hero-sub {
+                        font-size: 1.1rem;
+                    }
+                    .img-accent-card {
+                        position: relative;
+                        bottom: 0;
+                        right: 0;
+                        margin-top: -40px;
+                        margin-left: 20px;
+                        max-width: calc(100% - 40px);
+                    }
                 }
             `}</style>
         </div>

@@ -42,37 +42,39 @@ export default function Navbar() {
     return (
         <>
             <nav className="nav" role="navigation" aria-label="Main navigation">
-                <Link href="/home-page" className="nav-logo">
-                    <img src="/estah-logo.png" alt="Estah Logo" className="logo-img" />
-                    WE HEAL THE EARTH
-                </Link>
+                <div className="nav-container">
+                    <Link href="/home-page" className="nav-logo">
+                        <img src="/estah-logo.png" alt="Estah Logo" className="logo-img" />
+                        WE HEAL THE EARTH
+                    </Link>
 
-                <div className="nav-links" id="navLinks">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.path}
-                            href={item.path}
-                            className={`nav-link${isActive(item.path) ? ' active' : ''}`}
+                    <div className="nav-links" id="navLinks">
+                        {navItems.map((item) => (
+                            <Link
+                                key={item.path}
+                                href={item.path}
+                                className={`nav-link${isActive(item.path) ? ' active' : ''}`}
+                            >
+                                {item.name}
+                                {item.soon && <span className="soon-badge">SOON</span>}
+                                <span className="dot"></span>
+                            </Link>
+                        ))}
+                    </div>
+
+                    <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <ThemeSwitcher />
+                        <button
+                            className={`hamburger${mobileOpen ? ' open' : ''}`}
+                            id="hamburger"
+                            onClick={toggleMobile}
+                            aria-label="Toggle menu"
                         >
-                            {item.name}
-                            {item.soon && <span className="soon-badge">SOON</span>}
-                            <span className="dot"></span>
-                        </Link>
-                    ))}
-                </div>
-
-                <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <ThemeSwitcher />
-                    <button
-                        className={`hamburger${mobileOpen ? ' open' : ''}`}
-                        id="hamburger"
-                        onClick={toggleMobile}
-                        aria-label="Toggle menu"
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
             </nav>
 
