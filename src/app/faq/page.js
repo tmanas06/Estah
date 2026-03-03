@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, Mail, Phone, ExternalLink } from '@/components/Icons';
+import HeroBackground from '@/components/HeroBackground';
+import { ChevronDown, ChevronUp, Mail, Phone } from '@/components/Icons';
 
 const faqData = [
     {
@@ -32,13 +33,20 @@ export default function FAQPage() {
     return (
         <div className="faq-container">
             <header className="faq-hero">
-                <div className="hero-content">
-                    <span className="eyebrow">Assistance & Clarity</span>
-                    <h1 className="hero-title">Frequently Asked <em>Questions</em></h1>
-                    <p className="hero-sub">
-                        Everything you need to know about our mission, participation,
-                        and how we are healing the earth together.
-                    </p>
+                <HeroBackground />
+                <div className="hero-split">
+                    <div className="hero-content">
+                        <span className="eyebrow">Assistance & Clarity</span>
+                        <h1 className="hero-title">Frequently Asked <em>Questions</em></h1>
+                        <p className="hero-sub">
+                            Everything you need to know about our mission, participation,
+                            and how we are healing the earth together.
+                        </p>
+                    </div>
+                    <div className="hero-image-wrap">
+                        <img src="/faq-hero.png" alt="Guidance and Support" className="hero-img-main" />
+                        <div className="hero-img-backdrop"></div>
+                    </div>
                 </div>
             </header>
 
@@ -80,85 +88,132 @@ export default function FAQPage() {
             </section>
 
             <style jsx>{`
-                .faq-container {
-                    background: var(--bg);
-                    color: var(--text);
-                    min-height: 100vh;
-                }
                 .faq-hero {
-                    padding: 120px 4vw 60px;
-                    text-align: center;
-                    background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
+                    position: relative;
+                    padding: var(--gap-xl) var(--container-px);
+                    min-height: 70vh;
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
+                    background: var(--bg);
+                }
+                .hero-split {
+                    display: grid;
+                    grid-template-columns: 1.2fr 0.8fr;
+                    gap: var(--gap-lg);
+                    align-items: center;
+                    position: relative;
+                    z-index: 2;
+                    width: 100%;
+                }
+                .hero-content {
+                    text-align: left;
+                }
+                .hero-image-wrap {
+                    position: relative;
+                    border-radius: 32px;
+                    overflow: hidden;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                    border: 1px solid rgba(255,255,255,0.08);
+                    animation: fadeUp 0.8s ease both 0.2s;
+                }
+                .hero-img-main {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    transition: transform 0.6s ease;
+                }
+                .hero-image-wrap:hover .hero-img-main {
+                    transform: scale(1.03);
+                }
+                .hero-img-backdrop {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to top, rgba(10, 25, 47, 0.4), transparent);
+                    pointer-events: none;
                 }
                 .eyebrow {
                     font-size: 0.8rem;
                     font-weight: 800;
-                    letter-spacing: 0.2em;
+                    letter-spacing: 0.25em;
                     color: var(--lime);
                     text-transform: uppercase;
-                    margin-bottom: 20px;
+                    margin-bottom: 24px;
                     display: block;
+                    animation: fadeUp 0.5s ease both;
                 }
                 .hero-title {
-                    font-family: var(--font-sans);
-                    font-size: clamp(2.5rem, 6vw, 4rem);
-                    font-weight: 800;
-                    margin-bottom: 24px;
-                    line-height: 1.1;
-                    letter-spacing: -0.02em;
+                    font-size: var(--fs-h1);
+                    font-weight: 900;
+                    margin-bottom: 28px;
+                    line-height: 1.05;
+                    letter-spacing: -1px;
+                    animation: fadeUp 0.5s ease both 0.1s;
                 }
-                .hero-title em { font-style: italic; color: var(--lime); font-weight: 500; }
+                .hero-title em { font-style: italic; color: var(--lime); font-weight: 900; }
                 .hero-sub {
                     font-size: 1.15rem;
-                    opacity: 0.7;
-                    max-width: 600px;
-                    margin: 0 auto;
-                    line-height: 1.6;
+                    color: var(--muted);
+                    max-width: 580px;
+                    line-height: 1.65;
+                    animation: fadeUp 0.5s ease both 0.2s;
+                }
+
+                @keyframes fadeUp {
+                    from { opacity: 0; transform: translateY(30px); }
+                    to { opacity: 1; transform: translateY(0); }
                 }
 
                 .faq-section {
-                    padding: 60px 4vw 100px;
-                    max-width: 900px;
+                    padding: var(--gap-lg) var(--container-px) var(--gap-xl);
+                    max-width: 1000px;
                     margin: 0 auto;
                 }
                 .faq-list {
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 20px;
                 }
                 .faq-item {
                     background: var(--surface1);
-                    border-radius: 20px;
+                    border-radius: 24px;
                     border: 1px solid rgba(255,255,255,0.05);
                     overflow: hidden;
                     cursor: pointer;
-                    transition: all 0.3s ease;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 }
                 .faq-item:hover {
-                    border-color: var(--lime);
-                    background: rgba(255,255,255,0.03);
+                    border-color: rgba(100, 255, 218, 0.3);
+                    background: rgba(255,255,255,0.02);
+                    transform: translateY(-2px);
                 }
                 .faq-item.open {
-                    background: rgba(255,255,255,0.05);
+                    background: rgba(255,255,255,0.03);
                     border-color: var(--lime);
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
                 }
                 .faq-question {
-                    padding: 24px 30px;
+                    padding: 28px 36px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    gap: 20px;
+                    gap: 24px;
                 }
                 .faq-question h3 {
-                    font-size: 1.1rem;
-                    font-weight: 700;
+                    font-size: 1.15rem;
+                    font-weight: 750;
                     margin: 0;
                     line-height: 1.4;
+                    color: var(--text);
                 }
                 .faq-toggle {
                     color: var(--lime);
                     flex-shrink: 0;
+                    transition: transform 0.3s ease;
+                }
+                .faq-item.open .faq-toggle {
+                    transform: rotate(180deg);
                 }
                 .faq-answer {
                     max-height: 0;
@@ -167,54 +222,71 @@ export default function FAQPage() {
                     opacity: 0;
                 }
                 .faq-item.open .faq-answer {
-                    max-height: 200px;
+                    max-height: 300px;
                     opacity: 1;
-                    padding: 0 30px 30px;
+                    padding: 0 36px 36px;
                 }
                 .faq-answer p {
                     margin: 0;
-                    font-size: 1rem;
-                    line-height: 1.7;
-                    opacity: 0.8;
+                    font-size: 1.05rem;
+                    line-height: 1.75;
+                    color: var(--muted);
                 }
 
                 .faq-contact {
-                    padding: 0 4vw 140px;
+                    padding: 0 var(--container-px) var(--gap-xl);
                     display: flex;
                     justify-content: center;
                 }
                 .contact-card {
                     background: var(--surface1);
-                    padding: 50px;
-                    border-radius: 32px;
+                    padding: var(--gap-lg);
+                    border-radius: 40px;
                     text-align: center;
-                    max-width: 600px;
+                    max-width: 700px;
                     width: 100%;
-                    border: 1px solid rgba(255,255,255,0.05);
+                    border: 1px solid rgba(255,255,255,0.06);
+                    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
                 }
-                .contact-card h2 { font-size: 2rem; margin-bottom: 12px; }
-                .contact-card p { opacity: 0.7; margin-bottom: 32px; }
+                .contact-card h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
+                .contact-card p { color: var(--muted); font-size: 1.1rem; margin-bottom: 36px; }
                 .contact-methods {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    gap: 24px;
+                    gap: 32px;
                 }
                 .contact-link {
                     display: flex;
                     align-items: center;
-                    gap: 10px;
-                    font-weight: 700;
+                    gap: 12px;
+                    font-weight: 800;
                     color: var(--lime);
                     text-decoration: none;
-                    transition: opacity 0.2s;
+                    font-size: 1.05rem;
+                    transition: transform 0.2s ease, opacity 0.2s ease;
                 }
-                .contact-link:hover { opacity: 0.8; }
+                .contact-link:hover { transform: translateY(-2px); opacity: 0.85; }
 
+                @media (max-width: 1024px) {
+                    .hero-split {
+                        grid-template-columns: 1fr;
+                        text-align: center;
+                    }
+                    .hero-content {
+                        text-align: center;
+                    }
+                    .hero-sub { margin: 0 auto; }
+                    .hero-image-wrap {
+                        max-width: 500px;
+                        margin: 0 auto;
+                    }
+                }
                 @media (max-width: 600px) {
-                    .faq-hero { padding: 100px 4vw 40px; }
-                    .faq-question { padding: 20px; }
-                    .faq-item.open .faq-answer { padding: 0 20px 20px; }
+                    .faq-hero { padding: calc(var(--nav-h) + 40px) 4vw 40px; }
+                    .faq-question { padding: 20px 24px; }
+                    .faq-item.open .faq-answer { padding: 0 24px 24px; }
+                    .contact-card { padding: 32px 24px; }
                 }
             `}</style>
         </div>
