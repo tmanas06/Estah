@@ -203,6 +203,13 @@ img {
   align-items: center;
 }
 
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+    /* Hide for now, can add a better mobile menu later if needed */
+  }
+}
+
 .nav-link {
   position: relative;
   padding: 8px 14px;
@@ -329,11 +336,11 @@ img {
 
 /* Mobile menu */
 .mobile-menu {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   right: -100%;
-  width: 300px;
+  width: min(85%, 320px);
   height: 100vh;
   background: var(--surface1);
   z-index: 999;
@@ -1400,14 +1407,7 @@ img {
 /* ===========================
    FOOTER — Retro Festival
    =========================== */
-footer {
-  background: #091510;
-  border-top: var(--border-w) solid var(--lime);
-  padding: 60px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 48px;
-}
+
 
 .footer-brand h3 {
   font-size: 1.5rem;
@@ -1673,31 +1673,13 @@ footer {
   }
 }
 
-/* ===========================
-   RESPONSIVE — LARGE TABLET / SMALL LAPTOP (≤ 1100px)
-   Hamburger kicks in here to prevent nav cramping
-   =========================== */
-@media (max-width: 1100px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .mobile-menu {
-    display: flex;
-  }
-}
+/* Navigation responsive logic centralized at the bottom */
 
 /* ===========================
    RESPONSIVE — TABLET (≤ 1024px)
    =========================== */
 @media (max-width: 1024px) {
-  .nav {
-    padding: 0 24px;
-  }
+  /* nav padding removed, centralized below */
 
   .events-hero {
     padding: var(--gap-xl) var(--container-px) var(--gap-lg);
@@ -1734,10 +1716,7 @@ footer {
    RESPONSIVE — MOBILE (≤ 768px)
    =========================== */
 @media (max-width: 768px) {
-  .nav {
-    padding: 0 16px;
-    height: 60px;
-  }
+  /* nav height removed, centralized below */
 
   :root {
     --nav-h: 60px;
@@ -2024,13 +2003,7 @@ footer {
    RESPONSIVE — VERY SMALL (≤ 360px)
    =========================== */
 @media (max-width: 360px) {
-  .nav {
-    padding: 0 12px;
-  }
-
-  .nav-logo {
-    font-size: 1.1rem;
-  }
+  /* logo font-size removed, centralized below */
 
   .events-hero {
     padding: var(--gap-md) var(--container-px) var(--gap-sm);
@@ -2072,10 +2045,7 @@ footer {
     bottom: calc(16px + env(safe-area-inset-bottom));
   }
 
-  .nav {
-    padding-left: calc(16px + env(safe-area-inset-left));
-    padding-right: calc(16px + env(safe-area-inset-right));
-  }
+  /* safety padding centralized below */
 
   .mobile-menu {
     padding-bottom: calc(40px + env(safe-area-inset-bottom));
@@ -2714,8 +2684,8 @@ footer {
 }
 
 .footer-grid {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1.2fr 0.6fr 0.6fr 1fr;
   gap: 60px;
   margin-bottom: 80px;
   align-items: start;
@@ -2723,16 +2693,11 @@ footer {
 }
 
 .brand-col {
-  flex: 0 0 320px;
-}
-
-.links-col,
-.contact-col {
-  flex: 0 0 auto;
+  max-width: 320px;
 }
 
 .footer-newsletter {
-  flex: 0 0 340px;
+  max-width: 400px;
 }
 
 .footer-newsletter {
@@ -2830,7 +2795,7 @@ footer {
   margin-top: 24px;
 }
 
-.social-icon-btn {
+.social-links-row .social-icon-btn {
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -2841,9 +2806,10 @@ footer {
   color: var(--text);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0;
 }
 
-.social-icon-btn:hover {
+.social-links-row .social-icon-btn:hover {
   background: var(--lime);
   color: var(--text-dark);
   transform: translateY(-5px);
@@ -2956,22 +2922,34 @@ footer {
 
 @media (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 1.5fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
   }
 }
 
 @media (max-width: 768px) {
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .brand-col,
+  .footer-newsletter {
+    max-width: 100% !important;
   }
 
   .footer-copyright-bar {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 16px;
     text-align: center;
   }
+
+  .footer {
+    padding: 60px 0 30px;
+  }
 }
+
+/* General responsive fixes moved to bottom for higher priority */
 
 .impact-framework {
   padding: 80px 60px;
@@ -3328,5 +3306,180 @@ footer {
 
   .contact-form-wrap {
     padding: 40px 24px;
+  }
+}
+
+/* FINAL RESPONSIVE OVERRIDES */
+@media (max-width: 1024px) {
+
+  .impact-framework .framework-split,
+  .about-split,
+  .framework-card,
+  .story-grid,
+  .vision-grid,
+  .blog-preview-grid,
+  .events-grid,
+  .photos-grid,
+  .pathways-grid,
+  .grid-container,
+  .contact-split,
+  .hero-split,
+  .donate-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+  .hero-content {
+    padding: 0 24px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .section-label,
+  .eyebrow {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: 16px !important;
+  }
+
+  .cta-btn {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: 18px 24px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .home-hero,
+  .events-hero,
+  .programs-hero,
+  .gallery-hero,
+  .impact-hero,
+  .contact-hero,
+  .donate-hero {
+    padding: 120px 24px 60px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  .hero-sub {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .stat-pills {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .filter-bar,
+  .gallery-filter-bar {
+    padding: 10px 4vw !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    -webkit-overflow-scrolling: touch !important;
+    mask-image: linear-gradient(to right, black 85%, transparent 100%) !important;
+  }
+
+  .filter-pill {
+    flex-shrink: 0 !important;
+  }
+
+  .newsletter-input-group {
+    flex-direction: column !important;
+    padding: 8px !important;
+    gap: 12px !important;
+  }
+
+  .newsletter-submit-btn {
+    width: 100% !important;
+  }
+
+  .logo-img-footer {
+    height: 40px !important;
+  }
+
+  .brand-text {
+    font-size: 1rem !important;
+  }
+}
+
+/* NAVIGATION MOBILE FIXES & THEME SIMPLIFICATION */
+@media (max-width: 1024px) {
+  .nav {
+    background: #08100a !important;
+    /* Solid Dark Forest */
+    backdrop-filter: none !important;
+    height: 70px !important;
+    padding: 0 20px !important;
+    z-index: 9999 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .nav-container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .nav-logo {
+    font-size: 1rem !important;
+    color: var(--lime) !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10000 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 10px !important;
+  }
+
+  .hamburger span {
+    background: var(--lime) !important;
+    width: 28px !important;
+    height: 3px !important;
+    margin: 2px 0 !important;
+    display: block !important;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: flex !important;
+    background: #0D1E12 !important;
+    /* Dark Forest Green */
+    z-index: 9998 !important;
+  }
+
+  .mobile-overlay {
+    z-index: 9997 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo {
+    font-size: 0.9rem !important;
+  }
+
+  .logo-img {
+    height: 28px !important;
   }
 }

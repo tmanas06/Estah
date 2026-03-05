@@ -42,11 +42,12 @@ export default function Footer() {
                         <h4 className="footer-header">Quick Navigation</h4>
                         <ul className="footer-nav-list">
                             <li><Link href="/home-page">Home</Link></li>
-                            <li><Link href="/programs">Our Programs</Link></li>
-                            <li><Link href="/events">Upcoming Events</Link></li>
+                            <li><Link href="/events">Events</Link></li>
+                            <li><Link href="/programs">Planet Earth</Link></li>
+                            <li><Link href="/blog">Blog</Link></li>
                             <li><Link href="/gallery">Gallery</Link></li>
-                            <li><Link href="/blog">Impact Stories</Link></li>
-                            <li><Link href="/faq">FAQs</Link></li>
+                            <li><Link href="/faq">FAQ</Link></li>
+                            <li><Link href="/donate">Donate</Link></li>
                         </ul>
                     </div>
 

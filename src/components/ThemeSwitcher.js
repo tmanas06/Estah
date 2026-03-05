@@ -28,6 +28,11 @@ export default function ThemeSwitcher() {
           display: flex;
           align-items: center;
         }
+        @media (max-width: 1024px) {
+          .theme-switcher {
+            display: none;
+          }
+        }
         .theme-toggle-btn {
           background: transparent;
           border: none;

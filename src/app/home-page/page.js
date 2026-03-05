@@ -196,8 +196,8 @@ export default function HomePage() {
                     </div>
                     <div className="events-row">
                         <EventCard />
-                        <EventCard />
-                        <EventCard />
+                        <EventCard isPlaceholder={true} title="Community Tree Plantation" category="#Environment" />
+                        <EventCard isPlaceholder={true} title="Rural Education Drive" category="#Education" />
                     </div>
                 </div>
             </section>
@@ -711,7 +711,7 @@ export default function HomePage() {
                 .cta-box .secondary { background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.2); color: var(--text-dark); }
 
                 @media (max-width: 1024px) {
-                    .events-row, .photos-grid, .pathways-grid { grid-template-columns: 1fr; }
+                    .events-row, .photos-grid, .pathways-grid, .story-grid, .vision-grid, .blog-preview-grid { grid-template-columns: 1fr; }
                     .framework-container { grid-template-columns: 1fr; }
                     .cta-title { font-size: 2.5rem; }
                 }
