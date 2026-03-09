@@ -47,7 +47,7 @@ export default function Footer() {
                             <li><Link href="/blog">Blog</Link></li>
                             <li><Link href="/gallery">Gallery</Link></li>
                             <li><Link href="/faq">FAQ</Link></li>
-                            <li><Link href="/donate">Donate</Link></li>
+                            <li><a href="https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view" target="_blank" rel="noopener noreferrer">Donate</a></li>
                         </ul>
                     </div>
 
@@ -68,7 +68,7 @@ export default function Footer() {
                                 <span style={{ whiteSpace: 'normal' }}>Bangalore, Karnataka, India</span>
                             </div>
                             <div style={{ marginTop: '12px' }}>
-                                <Link href="/donate" className="highlight-link">Donate Now <ArrowUpRight size={14} /></Link>
+                                <a href="https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view" target="_blank" rel="noopener noreferrer" className="highlight-link">Donate Now <ArrowUpRight size={14} /></a>
                             </div>
                         </div>
                     </div>

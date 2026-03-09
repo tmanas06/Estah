@@ -308,7 +308,7 @@ export default function HomePage() {
                             Join thousands of students, educators, and leaders in building a regenerative future.
                         </p>
                         <div className="cta-links">
-                            <Link href="/donate" className="cta-btn primary">Support the Cause</Link>
+                            <a href="https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view" target="_blank" rel="noopener noreferrer" className="cta-btn primary">Support the Cause</a>
                             <Link href="/volunteers" className="cta-btn secondary">Become a Volunteer</Link>
                         </div>
                     </div>

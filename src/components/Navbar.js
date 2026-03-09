@@ -13,7 +13,7 @@ const navItems = [
     { name: 'Blog', path: '/blog', soon: false },
     { name: 'Gallery', path: '/gallery', soon: false },
     { name: 'FAQ', path: '/faq', soon: false },
-    { name: 'Donate', path: '/donate', soon: false },
+    { name: 'Donate', path: 'https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view', soon: false },
 
 ];
 
