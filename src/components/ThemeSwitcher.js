@@ -17,9 +17,9 @@ export default function ThemeSwitcher() {
       >
         <div className={`toggle-track ${theme}`}>
           <div className="toggle-thumb">
-            {theme === 'forest' ? <Leaf size={14} /> : <Droplets size={14} />}
+            {theme === 'forest' ? <Leaf size={14} /> : <Leaf size={14} style={{ transform: 'rotate(180deg)', color: '#f8a533' }} />}
           </div>
-          <span className="toggle-label">{theme === 'forest' ? 'FOREST' : 'OCEAN'}</span>
+          <span className="toggle-label">{theme === 'forest' ? 'FOREST' : 'SUNSET'}</span>
         </div>
       </button>
 
@@ -56,8 +56,8 @@ export default function ThemeSwitcher() {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .toggle-track.ocean {
-          border-color: #64FFDA;
-          background: rgba(100, 255, 218, 0.05);
+          border-color: #f8a533;
+          background: rgba(255, 140, 0, 0.05);
         }
         .toggle-thumb {
           position: absolute;
@@ -76,9 +76,9 @@ export default function ThemeSwitcher() {
         }
         .ocean .toggle-thumb {
           left: 67px;
-          background: #64FFDA;
-          box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
-          color: #0A192F;
+          background: #f8a533;
+          box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+          color: #1A0F05;
         }
         .toggle-label {
           width: 100%;
@@ -93,7 +93,7 @@ export default function ThemeSwitcher() {
         .ocean .toggle-label {
           padding-left: 0;
           padding-right: 28px;
-          color: #64FFDA;
+          color: #f8a533;
         }
       `}</style>
     </div>

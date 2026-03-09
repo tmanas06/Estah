@@ -59,23 +59,23 @@
 }
 
 
-/* OCEAN THEME (OCEANIC) */
+/* ORANGE THEME (SUNSET) */
 [data-theme='ocean'] {
-  --bg: #0A192F;
-  --bg-warm: #112240;
-  --surface1: #112240;
-  --surface2: #1D2D50;
-  --surface3: #233554;
-  --text: #CCD6F6;
-  --text-dark: #020C1B;
-  --muted: #8892B0;
-  --lime: #64FFDA;
-  --coral: #E0F2F1;
-  --sky: #00B4D8;
-  --purple: #B388FF;
-  --yellow: #A7FFEB;
+  --bg: #1A0F05;
+  --bg-warm: #261608;
+  --surface1: #3D220B;
+  --surface2: #543111;
+  --surface3: #6B4017;
+  --text: #FFE0C2;
+  --text-dark: #0D0803;
+  --muted: #B38B6D;
+  --lime: #f8a533;
+  --coral: #FFF3E0;
+  --sky: #FFA726;
+  --purple: #FFB74D;
+  --yellow: #FFE0B2;
   --gold: #FFFFFF;
-  --nav-bg: rgba(10, 25, 47, 0.95);
+  --nav-bg: rgba(26, 15, 5, 0.95);
 }
 
 html {
