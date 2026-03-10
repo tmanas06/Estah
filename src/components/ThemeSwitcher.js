@@ -10,17 +10,13 @@ export default function ThemeSwitcher() {
   return (
     <div className="theme-switcher">
       <button
-        className="theme-toggle-btn"
+        className={`theme-toggle-btn ${theme}`}
         onClick={toggleTheme}
         aria-label="Toggle Theme"
-        title={`Switch to ${theme === 'forest' ? 'Ocean' : 'Forest'} Theme`}
+        title={`Switch to ${theme === 'forest' ? 'Sunset' : 'Forest'} Theme`}
       >
-        <div className={`toggle-track ${theme}`}>
-          <div className="toggle-thumb">
-            {theme === 'forest' ? <Leaf size={14} /> : <Leaf size={14} style={{ transform: 'rotate(180deg)', color: '#f8a533' }} />}
-          </div>
-          <span className="toggle-label">{theme === 'forest' ? 'FOREST' : 'SUNSET'}</span>
-        </div>
+        {theme === 'forest' ? <Leaf size={16} /> : <Leaf size={16} style={{ transform: 'rotate(180deg)' }} />}
+        <span className="toggle-label">{theme === 'forest' ? 'FOREST' : 'SUNSET'}</span>
       </button>
 
       <style jsx>{`
@@ -34,66 +30,33 @@ export default function ThemeSwitcher() {
           }
         }
         .theme-toggle-btn {
-          background: transparent;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: #7ED957;
+          color: #FFFFFF;
+          padding: 10px 18px;
+          border-radius: 8px;
           border: none;
-          padding: 0;
+          font-weight: 600;
+          font-size: 14px;
           cursor: pointer;
-          transition: transform 0.2s ease;
+          transition: all 0.2s ease;
+          box-shadow: 0 4px 12px rgba(126, 217, 87, 0.3);
         }
         .theme-toggle-btn:hover {
-          transform: scale(1.05);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(126, 217, 87, 0.4);
         }
-        .toggle-track {
-          position: relative;
-          width: 100px;
-          height: 36px;
-          border-radius: 18px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid var(--lime);
-          display: flex;
-          align-items: center;
-          padding: 3px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .toggle-track.ocean {
-          border-color: #f8a533;
-          background: rgba(255, 140, 0, 0.05);
-        }
-        .toggle-thumb {
-          position: absolute;
-          left: 3px;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          background: var(--lime);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          box-shadow: 0 0 15px rgba(78, 140, 111, 0.4);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          z-index: 2;
-        }
-        .ocean .toggle-thumb {
-          left: 67px;
+        .theme-toggle-btn.ocean {
           background: #f8a533;
-          box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
-          color: #1A0F05;
+          box-shadow: 0 4px 12px rgba(248, 165, 51, 0.3);
+        }
+        .theme-toggle-btn.ocean:hover {
+          box-shadow: 0 6px 16px rgba(248, 165, 51, 0.4);
         }
         .toggle-label {
-          width: 100%;
-          text-align: center;
-          font-size: 0.65rem;
-          font-weight: 900;
-          letter-spacing: 0.15em;
-          color: var(--lime);
-          padding-left: 28px;
-          transition: all 0.3s ease;
-        }
-        .ocean .toggle-label {
-          padding-left: 0;
-          padding-right: 28px;
-          color: #f8a533;
+          letter-spacing: 0.05em;
         }
       `}</style>
     </div>

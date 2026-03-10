@@ -61,7 +61,6 @@ export default function HomePage() {
             />
           </div>
           <div className="hero-right">
-            <p className="eyebrow">WE HEAL THE EARTH · Established 2026</p>
             <h1 className="hero-title">
               Healing the Earth Through <em>Education</em> and <em>Action</em>
             </h1>
@@ -73,7 +72,6 @@ export default function HomePage() {
             <div className="hero-ctas">
               <Link href="/events" className="cta-btn primary">
                 Explore Events
-                <span className="btn-arrow">→</span>
               </Link>
               <Link href="/blog" className="cta-btn secondary">
                 Read Stories
@@ -467,8 +465,8 @@ export default function HomePage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: left;
-          padding: 0 4vw;
+          text-align: center;
+          padding: 120px 4vw;
           overflow: hidden;
         }
         .hero-content-split {
@@ -489,73 +487,73 @@ export default function HomePage() {
           flex: 1.2;
           display: flex;
           flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
         }
         .hero-large-logo {
           width: 100%;
-          max-width: 320px;
+          max-width: 380px;
           height: auto;
           object-fit: contain;
           border-radius: 20px;
           box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
           background: transparent;
         }
-        .eyebrow {
-          font-size: 0.85rem;
-          font-weight: 800;
-          letter-spacing: 0.2em;
-          color: var(--lime);
-          margin-bottom: 24px;
-          text-transform: uppercase;
-        }
         .hero-title {
           font-family: var(--font-sans);
-          font-size: var(--fs-h1);
-          line-height: 1;
+          font-size: clamp(36px, 5vw, 64px);
+          font-weight: 700;
+          line-height: 1.2;
           margin-bottom: 24px;
-          font-weight: 900;
-          letter-spacing: -0.03em;
+          letter-spacing: -0.02em;
         }
         .hero-title em {
           font-style: italic;
-          font-weight: 900;
-          color: var(--lime);
+          font-weight: 700;
+          color: #7ed957;
         }
         .hero-sub {
-          font-size: 1.25rem;
-          opacity: 0.8;
-          max-width: 650px;
-          margin: 0 0 48px;
+          font-size: clamp(16px, 2vw, 20px);
+          opacity: 0.85;
+          max-width: 580px;
+          margin: 0 0 32px 0;
           line-height: 1.6;
         }
         .hero-ctas {
           display: flex;
           gap: 16px;
           justify-content: flex-start;
-          margin-top: 0px;
         }
         .cta-btn {
-          padding: 18px 36px;
-          border-radius: 14px;
-          font-weight: 800;
+          padding: 16px 32px;
+          border-radius: 8px;
+          font-weight: 600;
           text-decoration: none;
-          transition: all 0.3s ease;
-        }
-        .cta-btn.primary {
-          background: var(--lime);
-          color: var(--text-dark);
+          transition: all 0.2s ease;
           display: flex;
           align-items: center;
-          gap: 8px;
+          justify-content: center;
+          font-size: 16px;
+        }
+        .cta-btn.primary {
+          background: #7ed957;
+          color: #ffffff;
+          font-size: 17px;
+          padding: 18px 36px;
+          box-shadow: 0 4px 12px rgba(126, 217, 87, 0.3);
+        }
+        .cta-btn.primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(126, 217, 87, 0.4);
         }
         .cta-btn.secondary {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          color: var(--text);
+          background: transparent;
+          color: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.8);
         }
-        .cta-btn:hover {
+        .cta-btn.secondary:hover {
+          background: rgba(255, 255, 255, 0.1);
           transform: translateY(-2px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* STATS TICKER */
@@ -1177,6 +1175,7 @@ export default function HomePage() {
           }
           .hero-title {
             order: 2;
+            margin-bottom: 16px;
           }
           .hero-sub {
             order: 3;
@@ -1192,8 +1191,12 @@ export default function HomePage() {
             justify-content: center;
             width: 100%;
             padding: 0 4vw;
+            gap: 12px;
           }
 
+          .cta-btn {
+            width: 100%;
+          }
           .hero-large-logo {
             max-width: 280px;
           }
@@ -1274,27 +1277,6 @@ export default function HomePage() {
           }
           :global(.hero-brand-mark) {
             margin-bottom: 16px !important;
-          }
-          .eyebrow {
-            margin-bottom: 12px;
-            font-size: 0.75rem;
-          }
-          .hero-title {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
-          }
-          .hero-sub {
-            margin-bottom: 24px;
-            font-size: 1.05rem;
-          }
-          .hero-ctas {
-            gap: 12px;
-            padding: 0;
-          }
-          .cta-btn {
-            padding: 14px 24px;
-            width: 100%;
-            justify-content: center;
           }
           .cta-box {
             padding: 60px 20px;
