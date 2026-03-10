@@ -75,14 +75,14 @@ export default function HomePage() {
             <section className="home-stats">
                 <div className="stats-ticker">
                     <div className="ticker-inner">
-                        <span>70+ PARTICIPANTS</span>
-                        <span>2500+ STUDENTS IMPACTED</span>
-                        <span>25+ PARTNERS</span>
-                        <span>4M LIVES TARGETED</span>
-                        <span>70+ PARTICIPANTS</span>
-                        <span>2500+ STUDENTS IMPACTED</span>
-                        <span>25+ PARTNERS</span>
-                        <span>4M LIVES TARGETED</span>
+                        <span>50+ GLOBAL PARTNERS</span>
+                        <span>COLLABORATING FOR IMPACT</span>
+                        <span>EMPOWERING COMMUNITIES</span>
+                        <span>DRIVING SUSTAINABLE CHANGE</span>
+                        <span>50+ GLOBAL PARTNERS</span>
+                        <span>COLLABORATING FOR IMPACT</span>
+                        <span>EMPOWERING COMMUNITIES</span>
+                        <span>DRIVING SUSTAINABLE CHANGE</span>
                     </div>
                 </div>
             </section>
@@ -299,6 +299,28 @@ export default function HomePage() {
                 </div>
             </section>
 
+            {/* SPONSORS & PARTNERS */}
+            <section className="home-sponsors">
+                <div className="sponsors-container">
+                    <div className="sponsors-header center">
+                        {/* <span className="sponsors-label">🤝 Our Sponsors & Partners</span> */}
+                        <h2 className="section-title">Powering Change <em>Together</em></h2>
+                        <p className="sponsors-desc">
+                            We're grateful to collaborate with organizations that share our vision of environmental
+                            restoration and community empowerment. Together, we're creating lasting positive impact.
+                        </p>
+                    </div>
+                    <div className="sponsors-grid">
+                        <div className="sponsor-card"><img src="/sponsors/1-1.png" alt="Estah" /></div>
+                        <div className="sponsor-card"><img src="/sponsors/4.png" alt="C-SED" /></div>
+                        <div className="sponsor-card"><img src="/sponsors/5.png" alt="HNF Capital" /></div>
+                        <div className="sponsor-card"><img src="/sponsors/6.png" alt="Seal" /></div>
+                        <div className="sponsor-card"><img src="/sponsors/7.png" alt="National Parmathon" /></div>
+                        <div className="sponsor-card"><img src="/sponsors/8.png" alt="Earth Tree" /></div>
+                    </div>
+                </div>
+            </section>
+
             {/* COMMUNITY CTA */}
             <section className="home-community-cta">
                 <div className="cta-box">
@@ -414,6 +436,7 @@ export default function HomePage() {
                     font-size: 0.9rem;
                     letter-spacing: 0.1em;
                     opacity: 0.8;
+                    color: white;
                 }
                 @keyframes ticker {
                     0% { transform: translateX(0); }
@@ -690,6 +713,67 @@ export default function HomePage() {
                 .path-card h3 { font-family: var(--font-sans); font-size: 1.5rem; margin-bottom: 16px; }
                 .path-card p { opacity: 0.7; line-height: 1.6; }
 
+                /* SPONSORS */
+                .home-sponsors {
+                    padding: 80px 4vw 140px;
+                    background: var(--bg);
+                }
+                .sponsors-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+                .sponsors-header.center {
+                    text-align: center;
+                    margin-bottom: 60px;
+                }
+                .sponsors-label {
+                    display: inline-block;
+                    background: #3B82F6;
+                    color: white;
+                    padding: 10px 24px;
+                    border-radius: 30px;
+                    font-size: 0.95rem;
+                    font-weight: 800;
+                    margin-bottom: 24px;
+                }
+                .sponsors-desc {
+                    font-size: 1.15rem;
+                    opacity: 0.8;
+                    max-width: 800px;
+                    margin: 20px auto 0;
+                    line-height: 1.6;
+                }
+                .sponsors-grid {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 20px;
+                }
+                .sponsor-card {
+                    background: var(--surface1);
+                    border-radius: 16px;
+                    padding: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    aspect-ratio: 4/3;
+                    transition: transform 0.3s ease;
+                    border: 1px solid rgba(255,255,255,0.05);
+                }
+                .sponsor-card:hover {
+                    transform: translateY(-5px);
+                    background: rgba(255,255,255,0.04);
+                }
+                .sponsor-card img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    opacity: 0.8;
+                    transition: opacity 0.3s ease, filter 0.3s ease;
+                }
+                .sponsor-card:hover img {
+                    opacity: 1;
+                }
+
                 /* COMMUNITY CTA */
                 .home-community-cta {
                     padding: 140px 4vw;
@@ -713,12 +797,14 @@ export default function HomePage() {
                 @media (max-width: 1024px) {
                     .events-row, .photos-grid, .pathways-grid, .story-grid, .vision-grid, .blog-preview-grid { grid-template-columns: 1fr; }
                     .framework-container { grid-template-columns: 1fr; }
+                    .sponsors-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
                     .cta-title { font-size: 2.5rem; }
                 }
 
                 @media (max-width: 640px) {
                     .strip-header { flex-direction: column; align-items: flex-start; gap: 20px; }
                     .cta-links { flex-direction: column; }
+                    .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
                 }
             `}</style>
         </div>
