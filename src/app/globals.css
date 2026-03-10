@@ -2783,9 +2783,9 @@ img {
 
 .footer-desc {
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.6;
   opacity: 0.7;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   max-width: 400px;
 }
 
@@ -2843,7 +2843,7 @@ img {
 }
 
 .footer-nav-list li {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .footer-nav-list a {
@@ -2870,7 +2870,7 @@ img {
 
 .contact-details-grid {
   display: grid;
-  gap: 20px;
+  gap: 12px;
 }
 
 .contact-link-item {
