@@ -331,7 +331,7 @@ export default function HomePage() {
                         </p>
                         <div className="cta-links">
                             <a href="https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view" target="_blank" rel="noopener noreferrer" className="cta-btn primary">Support the Cause</a>
-                            <Link href="/volunteers" className="cta-btn secondary">Become a Volunteer</Link>
+                            {/* <Link href="/volunteers" className="cta-btn secondary">Become a Volunteer</Link> */}
                         </div>
                     </div>
                 </div>
@@ -603,7 +603,6 @@ export default function HomePage() {
                 .events-strip, .photos-strip {
                     padding: 100px 4vw;
                     border-top: 1px solid rgba(255,255,255,0.05);
-                    overflow: hidden; /* Prevent horizontal scrollbar on body */
                 }
                 .strip-container {
                     max-width: 1400px;
@@ -841,7 +840,6 @@ export default function HomePage() {
                         display: flex;
                         flex-wrap: nowrap;
                         overflow-x: auto;
-                        -webkit-overflow-scrolling: touch;
                         scroll-snap-type: x mandatory;
                         padding-bottom: 20px;
                         margin: 0 -4vw; /* Break out of container padding */
@@ -870,6 +868,7 @@ export default function HomePage() {
                     .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
                     :global(.events-row > *) { flex: 0 0 90%; min-width: 90%; }
                     .photos-grid > * { flex: 0 0 80%; min-width: 80%; }
+                    .img-accent-card {
                     .img-accent-card {
                         position: relative;
                         bottom: auto;
