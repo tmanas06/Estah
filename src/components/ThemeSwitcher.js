@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useTheme } from '../context/ThemeContext';
-import { Leaf, Droplets } from './Icons';
+import React from "react";
+import { useTheme } from "../context/ThemeContext";
+import { Leaf, Droplets } from "./Icons";
 
 export default function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
@@ -13,10 +13,16 @@ export default function ThemeSwitcher() {
         className={`theme-toggle-btn ${theme}`}
         onClick={toggleTheme}
         aria-label="Toggle Theme"
-        title={`Switch to ${theme === 'forest' ? 'Sunset' : 'Forest'} Theme`}
+        title={`Switch to ${theme === "forest" ? "Sunset" : "Forest"} Theme`}
       >
-        {theme === 'forest' ? <Leaf size={16} /> : <Leaf size={16} style={{ transform: 'rotate(180deg)' }} />}
-        <span className="toggle-label">{theme === 'forest' ? 'FOREST' : 'SUNSET'}</span>
+        {theme === "forest" ? (
+          <Leaf size={16} />
+        ) : (
+          <Leaf size={16} style={{ transform: "rotate(180deg)" }} />
+        )}
+        <span className="toggle-label">
+          {theme === "forest" ? "FOREST" : "SUNSET"}
+        </span>
       </button>
 
       <style jsx>{`
@@ -33,8 +39,8 @@ export default function ThemeSwitcher() {
           display: flex;
           align-items: center;
           gap: 8px;
-          background: #7ED957;
-          color: #FFFFFF;
+          background: #7ed957;
+          color: #ffffff;
           padding: 10px 18px;
           border-radius: 8px;
           border: none;
@@ -57,6 +63,14 @@ export default function ThemeSwitcher() {
         }
         .toggle-label {
           letter-spacing: 0.05em;
+        }
+        @media (max-width: 1200px) {
+          .toggle-label {
+            display: none;
+          }
+          .theme-toggle-btn {
+            padding: 10px;
+          }
         }
       `}</style>
     </div>

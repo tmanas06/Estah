@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
-  Leaf,
-  GraduationCap,
-  Zap,
-  ArrowRight,
-  ExternalLink,
-  Calendar,
-  MapPin,
+    Leaf,
+    GraduationCap,
+    Zap,
+    ArrowRight,
+    ExternalLink,
+    Calendar,
+    MapPin,
 } from "@/components/Icons";
 import HeroBackground from "@/components/HeroBackground";
 import PhotoSlider from "@/components/PhotoSlider";
@@ -17,442 +17,442 @@ import EventCard from "@/components/EventCard";
 import { TreeLoader } from "@/components/TreeLoader";
 
 export default function HomePage() {
-  const [latestBlogs, setLatestBlogs] = useState([]);
-  const [loadingBlogs, setLoadingBlogs] = useState(true);
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loadingGallery, setLoadingGallery] = useState(true);
+    const [latestBlogs, setLatestBlogs] = useState([]);
+    const [loadingBlogs, setLoadingBlogs] = useState(true);
+    const [galleryImages, setGalleryImages] = useState([]);
+    const [loadingGallery, setLoadingGallery] = useState(true);
 
-  useEffect(() => {
-    const fetchLatest = async () => {
-      try {
-        // Fetch Blogs
-        const blogRes = await fetch("/api/blogs");
-        const blogData = await blogRes.json();
-        setLatestBlogs(Array.isArray(blogData) ? blogData.slice(0, 3) : []);
+    useEffect(() => {
+        const fetchLatest = async () => {
+            try {
+                // Fetch Blogs
+                const blogRes = await fetch("/api/blogs");
+                const blogData = await blogRes.json();
+                setLatestBlogs(Array.isArray(blogData) ? blogData.slice(0, 3) : []);
 
-        // Fetch Gallery
-        const galleryRes = await fetch("/api/gallery");
-        const galleryData = await galleryRes.json();
-        setGalleryImages(
-          Array.isArray(galleryData) ? galleryData.slice(0, 4) : [],
-        );
-      } catch (err) {
-        console.error("Failed to fetch latest data", err);
-      } finally {
-        setLoadingBlogs(false);
-        setLoadingGallery(false);
-      }
-    };
-    fetchLatest();
-  }, []);
+                // Fetch Gallery
+                const galleryRes = await fetch("/api/gallery");
+                const galleryData = await galleryRes.json();
+                setGalleryImages(
+                    Array.isArray(galleryData) ? galleryData.slice(0, 4) : [],
+                );
+            } catch (err) {
+                console.error("Failed to fetch latest data", err);
+            } finally {
+                setLoadingBlogs(false);
+                setLoadingGallery(false);
+            }
+        };
+        fetchLatest();
+    }, []);
 
-  return (
-    <div className="home-container">
-      {/* HERO SECTION */}
-      <section className="home-hero">
-        <PhotoSlider />
-        <HeroBackground />
-        <div className="hero-content-split">
-          <div className="hero-left">
-            <img
-              src="/estah-logo-counsel.jpg"
-              alt="Estah The Counsel Logo"
-              className="hero-large-logo"
-            />
-          </div>
-          <div className="hero-right">
-            <h1 className="hero-title">
-              Healing the Earth Through <em>Education</em> and <em>Action</em>
-            </h1>
-            <p className="hero-sub">
-              We are a sustainability-driven initiative creating lasting impact
-              through regenerative education and community transformation. Join
-              the movement.
-            </p>
-            <div className="hero-ctas">
-              <Link href="/events" className="cta-btn primary">
-                Explore Events
-              </Link>
-              <Link href="/blog" className="cta-btn secondary">
-                Read Stories
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-decorations">
-          <div className="blob blob-1"></div>
-          <div className="blob blob-2"></div>
-        </div>
-      </section>
-
-      {/* QUICK STATS TICKER */}
-      <section className="home-stats">
-        <div className="stats-ticker">
-          <div className="ticker-inner">
-            <span>50+ GLOBAL PARTNERS</span>
-            <span>COLLABORATING FOR IMPACT</span>
-            <span>EMPOWERING COMMUNITIES</span>
-            <span>DRIVING SUSTAINABLE CHANGE</span>
-            <span>50+ GLOBAL PARTNERS</span>
-            <span>COLLABORATING FOR IMPACT</span>
-            <span>EMPOWERING COMMUNITIES</span>
-            <span>DRIVING SUSTAINABLE CHANGE</span>
-          </div>
-        </div>
-      </section>
-
-      {/* OUR STORY / MISSION */}
-      <section className="home-story">
-        <div className="story-grid">
-          <div className="story-image-wrap">
-            <img
-              src="/story-mission.png"
-              alt="Planting seeds of change"
-              className="story-main-img"
-            />
-            <div className="img-accent-card">
-              <span className="accent-num">01</span>
-              <p>
-                Our commitment to regenerative growth starts at the grassroots
-                level.
-              </p>
-            </div>
-          </div>
-          <div className="story-content">
-            <p className="section-label">Our Story</p>
-            <h2 className="story-title">
-              From <em>Awareness</em> to <em>Accountability</em>
-            </h2>
-            <p className="story-text">
-              Estah Society’s "WE HEAL THE EARTH" initiative is more than just a
-              campaign; it’s a commitment to the Future of India 2047. We bridge
-              the gap between environmental consciousness and tangible community
-              action.
-            </p>
-            <div className="story-points">
-              <div className="s-point">
-                <strong>Regenerative Mindsets</strong>
-                <p>
-                  Teaching communities not just to sustain, but to actively heal
-                  their local ecosystems.
-                </p>
-              </div>
-              <div className="s-point">
-                <strong>Systemic Change</strong>
-                <p>
-                  Working with institutional partners to scale sustainable
-                  practices across the nation.
-                </p>
-              </div>
-            </div>
-            <Link href="/programs" className="learn-more-link">
-              Explore our Programs <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* VISION CARDS */}
-      <section className="home-vision">
-        <div className="section-header">
-          <p className="section-label">Our Philosophy</p>
-          <h2 className="section-title">
-            A Vision for <em>India 2047</em>
-          </h2>
-        </div>
-
-        <div className="vision-grid">
-          <div className="vision-card">
-            <div className="vision-icon">
-              <Leaf size={32} />
-            </div>
-            <h3>Sustainability</h3>
-            <p>
-              Healing the earth through conscious living and regenerative
-              educational frameworks.
-            </p>
-          </div>
-          <div className="vision-card">
-            <div className="vision-icon">
-              <GraduationCap size={32} />
-            </div>
-            <h3>Education</h3>
-            <p>
-              Bridging the gap with scholarship exams and fellowships for every
-              aspiring mind.
-            </p>
-          </div>
-          <div className="vision-card">
-            <div className="vision-icon">
-              <Zap size={32} />
-            </div>
-            <h3>Empowerment</h3>
-            <p>
-              Providing the tools and networks for individual and community
-              transformation.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* LATEST STORIES PREVIEW */}
-      <section className="home-latest-blogs">
-        <div className="section-header center">
-          <p className="section-label">Field Notes</p>
-          <h2 className="section-title">
-            Latest <em>Stories</em>
-          </h2>
-        </div>
-
-        <div className="blog-preview-grid">
-          {loadingBlogs ? (
-            <div className="loader-container">
-              <TreeLoader size={60} />
-            </div>
-          ) : (
-            latestBlogs.map((post, idx) => (
-              <Link href="/blog" key={idx} className="blog-preview-card">
-                <div className="preview-content">
-                  <span className="p-category">Impact Story</span>
-                  <h3 className="p-title">{post.title}</h3>
-                  <p className="p-excerpt">
-                    {post.excerpt?.substring(0, 100)}...
-                  </p>
-                  <span className="p-link">
-                    Read More <ArrowRight size={14} />
-                  </span>
+    return (
+        <div className="home-container">
+            {/* HERO SECTION */}
+            <section className="home-hero">
+                <PhotoSlider />
+                <HeroBackground />
+                <div className="hero-content-split">
+                    <div className="hero-left">
+                        <img
+                            src="/estah-logo-counsel.jpg"
+                            alt="Estah The Counsel Logo"
+                            className="hero-large-logo"
+                        />
+                    </div>
+                    <div className="hero-right">
+                        <h1 className="hero-title">
+                            Healing the Earth Through <em>Education</em> and <em>Action</em>
+                        </h1>
+                        <p className="hero-sub">
+                            We are a sustainability-driven initiative creating lasting impact
+                            through regenerative education and community transformation. Join
+                            the movement.
+                        </p>
+                        <div className="hero-ctas">
+                            <Link href="/events" className="cta-btn primary">
+                                Explore Events
+                            </Link>
+                            <Link href="/blog" className="cta-btn secondary">
+                                Read Stories
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-              </Link>
-            ))
-          )}
-        </div>
-        <div className="center-cta">
-          <Link href="/blog" className="view-all-btn">
-            View All Historical Notes
-          </Link>
-        </div>
-      </section>
 
-      {/* UPCOMING EVENTS STRIP */}
-      <section className="events-strip">
-        <div className="strip-container">
-          <div className="strip-header">
-            <div className="header-text">
-              <p className="section-label">Join Us</p>
-              <h2 className="strip-title">
-                Upcoming <em>Events</em>
-              </h2>
-            </div>
-            <Link href="/events" className="strip-link">
-              View All Events <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="events-row">
-            <EventCard />
-            <EventCard
-              isPlaceholder={true}
-              title="Community Tree Plantation"
-              category="#Environment"
-            />
-            <EventCard
-              isPlaceholder={true}
-              title="Rural Education Drive"
-              category="#Education"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* MOMENT GALLERY STRIP */}
-      <section className="photos-strip">
-        <div className="strip-container">
-          <div className="strip-header">
-            <div className="header-text">
-              <p className="section-label">Gallery</p>
-              <h2 className="strip-title">
-                Moments <em>in Action</em>
-              </h2>
-            </div>
-            <Link href="/gallery" className="strip-link">
-              See All Photos <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="photos-grid">
-            {loadingGallery ? (
-              <div className="loader-container">
-                <TreeLoader size={40} />
-              </div>
-            ) : (
-              galleryImages.map((img, i) => (
-                <div key={i} className="photo-item">
-                  <img src={img.src} alt={img.alt} loading="lazy" />
-                  <div className="photo-overlay">
-                    <span>{img.category}</span>
-                  </div>
+                <div className="hero-decorations">
+                    <div className="blob blob-1"></div>
+                    <div className="blob blob-2"></div>
                 </div>
-              ))
-            )}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* IMPACT FRAMEWORK */}
-      <section className="home-framework">
-        <div className="framework-container">
-          <div className="framework-content">
-            <p className="section-label">Impact Framework</p>
-            <h2 className="framework-title">
-              The Regenerative <em>Education Model</em>
-            </h2>
-            <p className="framework-desc">
-              We don&apos;t just teach; we transform. Our ecosystem is built on
-              three pillars that ensure sustainable development from classroom
-              to community.
-            </p>
-            <div className="framework-points">
-              <div className="f-point">
-                <div className="f-icon">
-                  <Zap size={24} />
+            {/* QUICK STATS TICKER */}
+            <section className="home-stats">
+                <div className="stats-ticker">
+                    <div className="ticker-inner">
+                        <span>50+ GLOBAL PARTNERS</span>
+                        <span>COLLABORATING FOR IMPACT</span>
+                        <span>EMPOWERING COMMUNITIES</span>
+                        <span>DRIVING SUSTAINABLE CHANGE</span>
+                        <span>50+ GLOBAL PARTNERS</span>
+                        <span>COLLABORATING FOR IMPACT</span>
+                        <span>EMPOWERING COMMUNITIES</span>
+                        <span>DRIVING SUSTAINABLE CHANGE</span>
+                    </div>
                 </div>
-                <div className="f-text">
-                  <h4>Dynamic Curriculum</h4>
-                  <p>
-                    Scholarship exams and fellowships designed for modern
-                    environmental challenges.
-                  </p>
+            </section>
+
+            {/* OUR STORY / MISSION */}
+            <section className="home-story">
+                <div className="story-grid">
+                    <div className="story-image-wrap">
+                        <img
+                            src="/story-mission.png"
+                            alt="Planting seeds of change"
+                            className="story-main-img"
+                        />
+                        <div className="img-accent-card">
+                            <span className="accent-num">01</span>
+                            <p>
+                                Our commitment to regenerative growth starts at the grassroots
+                                level.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="story-content">
+                        <p className="section-label">Our Story</p>
+                        <h2 className="story-title">
+                            From <em>Awareness</em> to <em>Accountability</em>
+                        </h2>
+                        <p className="story-text">
+                            Estah Society’s "WE HEAL THE EARTH" initiative is more than just a
+                            campaign; it’s a commitment to the Future of India 2047. We bridge
+                            the gap between environmental consciousness and tangible community
+                            action.
+                        </p>
+                        <div className="story-points">
+                            <div className="s-point">
+                                <strong>Regenerative Mindsets</strong>
+                                <p>
+                                    Teaching communities not just to sustain, but to actively heal
+                                    their local ecosystems.
+                                </p>
+                            </div>
+                            <div className="s-point">
+                                <strong>Systemic Change</strong>
+                                <p>
+                                    Working with institutional partners to scale sustainable
+                                    practices across the nation.
+                                </p>
+                            </div>
+                        </div>
+                        <Link href="/programs" className="learn-more-link">
+                            Explore our Programs <ArrowRight size={18} />
+                        </Link>
+                    </div>
                 </div>
-              </div>
-              <div className="f-point">
-                <div className="f-icon">
-                  <Leaf size={24} />
+            </section>
+
+            {/* VISION CARDS */}
+            <section className="home-vision">
+                <div className="section-header">
+                    <p className="section-label">Our Philosophy</p>
+                    <h2 className="section-title">
+                        A Vision for <em>India 2047</em>
+                    </h2>
                 </div>
-                <div className="f-text">
-                  <h4>Rooted Action</h4>
-                  <p>
-                    Grassroots community projects that put regenerative theory
-                    into practice.
-                  </p>
+
+                <div className="vision-grid">
+                    <div className="vision-card">
+                        <div className="vision-icon">
+                            <Leaf size={32} />
+                        </div>
+                        <h3>Sustainability</h3>
+                        <p>
+                            Healing the earth through conscious living and regenerative
+                            educational frameworks.
+                        </p>
+                    </div>
+                    <div className="vision-card">
+                        <div className="vision-icon">
+                            <GraduationCap size={32} />
+                        </div>
+                        <h3>Education</h3>
+                        <p>
+                            Bridging the gap with scholarship exams and fellowships for every
+                            aspiring mind.
+                        </p>
+                    </div>
+                    <div className="vision-card">
+                        <div className="vision-icon">
+                            <Zap size={32} />
+                        </div>
+                        <h3>Empowerment</h3>
+                        <p>
+                            Providing the tools and networks for individual and community
+                            transformation.
+                        </p>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="framework-visual">
-            <div className="visual-orb"></div>
-            <img src="/story-mission.png" alt="Framework" />
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* INSTITUTIONAL PATHWAYS */}
-      <section className="home-pathways">
-        <div className="pathways-head center">
-          <p className="section-label">Scale through Collaboration</p>
-          <h2 className="section-title">
-            Institutional <em>Pathways</em>
-          </h2>
-        </div>
-        <div className="pathways-grid">
-          <div className="path-card">
-            <div className="path-top">
-              <span className="path-num">01</span>
-              <GraduationCap size={32} />
-            </div>
-            <h3>Academic Alliances</h3>
-            <p>
-              Partnering with universities to integrate sustainability into
-              mainstream higher education.
-            </p>
-          </div>
-          <div className="path-card">
-            <div className="path-top">
-              <span className="path-num">02</span>
-              <ExternalLink size={32} />
-            </div>
-            <h3>Corporate Synergy</h3>
-            <p>
-              Driving CSR initiatives that create measurable environmental and
-              social ROI.
-            </p>
-          </div>
-          <div className="path-card">
-            <div className="path-top">
-              <span className="path-num">03</span>
-              <Zap size={32} />
-            </div>
-            <h3>Government Policy</h3>
-            <p>
-              Advising on educational frameworks that align with India 2047
-              sustainability goals.
-            </p>
-          </div>
-        </div>
-      </section>
+            {/* LATEST STORIES PREVIEW */}
+            <section className="home-latest-blogs">
+                <div className="section-header center">
+                    <p className="section-label">Field Notes</p>
+                    <h2 className="section-title">
+                        Latest <em>Stories</em>
+                    </h2>
+                </div>
 
-      {/* SPONSORS & PARTNERS */}
-      <section className="home-sponsors">
-        <div className="sponsors-container">
-          <div className="sponsors-header center">
-            {/* <span className="sponsors-label">🤝 Our Sponsors & Partners</span> */}
-            <h2 className="section-title">
-              Powering Change <em>Together</em>
-            </h2>
-            <p className="sponsors-desc">
-              We're grateful to collaborate with organizations that share our
-              vision of environmental restoration and community empowerment.
-              Together, we're creating lasting positive impact.
-            </p>
-          </div>
-          <div className="sponsors-grid">
-            <div className="sponsor-card">
-              <img src="/sponsors/1-1.png" alt="Estah" />
-            </div>
-            <div className="sponsor-card">
-              <img src="/sponsors/4.png" alt="C-SED" />
-            </div>
-            <div className="sponsor-card">
-              <img src="/sponsors/5.png" alt="HNF Capital" />
-            </div>
-            <div className="sponsor-card">
-              <img src="/sponsors/6.png" alt="Seal" />
-            </div>
-            <div className="sponsor-card">
-              <img src="/sponsors/7.png" alt="National Parmathon" />
-            </div>
-            <div className="sponsor-card">
-              <img src="/sponsors/8.png" alt="Earth Tree" />
-            </div>
-          </div>
-        </div>
-      </section>
+                <div className="blog-preview-grid">
+                    {loadingBlogs ? (
+                        <div className="loader-container">
+                            <TreeLoader size={60} />
+                        </div>
+                    ) : (
+                        latestBlogs.map((post, idx) => (
+                            <Link href="/blog" key={idx} className="blog-preview-card">
+                                <div className="preview-content">
+                                    <span className="p-category">Impact Story</span>
+                                    <h3 className="p-title">{post.title}</h3>
+                                    <p className="p-excerpt">
+                                        {post.excerpt?.substring(0, 100)}...
+                                    </p>
+                                    <span className="p-link">
+                                        Read More <ArrowRight size={14} />
+                                    </span>
+                                </div>
+                            </Link>
+                        ))
+                    )}
+                </div>
+                <div className="center-cta">
+                    <Link href="/blog" className="view-all-btn">
+                        View All Historical Notes
+                    </Link>
+                </div>
+            </section>
 
-      {/* COMMUNITY CTA */}
-      <section className="home-community-cta">
-        <div className="cta-box">
-          <div className="cta-inner">
-            <h2 className="cta-title">
-              Ready to <em>Heal the Earth?</em>
-            </h2>
-            <p className="cta-sub">
-              Join thousands of students, educators, and leaders in building a
-              regenerative future.
-            </p>
-            <div className="cta-links">
-              <a
-                href="https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-btn primary"
-              >
-                Support the Cause
-              </a>
-              {/* <Link href="/volunteers" className="cta-btn secondary">Become a Volunteer</Link> */}
-            </div>
-          </div>
-        </div>
-      </section>
+            {/* UPCOMING EVENTS STRIP */}
+            <section className="events-strip">
+                <div className="strip-container">
+                    <div className="strip-header">
+                        <div className="header-text">
+                            <p className="section-label">Join Us</p>
+                            <h2 className="strip-title">
+                                Upcoming <em>Events</em>
+                            </h2>
+                        </div>
+                        <Link href="/events" className="strip-link">
+                            View All Events <ArrowRight size={18} />
+                        </Link>
+                    </div>
+                    <div className="events-row">
+                        <EventCard />
+                        <EventCard
+                            isPlaceholder={true}
+                            title="Community Tree Plantation"
+                            category="#Environment"
+                        />
+                        <EventCard
+                            isPlaceholder={true}
+                            title="Rural Education Drive"
+                            category="#Education"
+                        />
+                    </div>
+                </div>
+            </section>
 
-      <style jsx>{`
+            {/* MOMENT GALLERY STRIP */}
+            <section className="photos-strip">
+                <div className="strip-container">
+                    <div className="strip-header">
+                        <div className="header-text">
+                            <p className="section-label">Gallery</p>
+                            <h2 className="strip-title">
+                                Moments <em>in Action</em>
+                            </h2>
+                        </div>
+                        <Link href="/gallery" className="strip-link">
+                            See All Photos <ArrowRight size={18} />
+                        </Link>
+                    </div>
+                    <div className="photos-grid">
+                        {loadingGallery ? (
+                            <div className="loader-container">
+                                <TreeLoader size={40} />
+                            </div>
+                        ) : (
+                            galleryImages.map((img, i) => (
+                                <div key={i} className="photo-item">
+                                    <img src={img.src} alt={img.alt} loading="lazy" />
+                                    <div className="photo-overlay">
+                                        <span>{img.category}</span>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            {/* IMPACT FRAMEWORK */}
+            <section className="home-framework">
+                <div className="framework-container">
+                    <div className="framework-content">
+                        <p className="section-label">Impact Framework</p>
+                        <h2 className="framework-title">
+                            The Regenerative <em>Education Model</em>
+                        </h2>
+                        <p className="framework-desc">
+                            We don&apos;t just teach; we transform. Our ecosystem is built on
+                            three pillars that ensure sustainable development from classroom
+                            to community.
+                        </p>
+                        <div className="framework-points">
+                            <div className="f-point">
+                                <div className="f-icon">
+                                    <Zap size={24} />
+                                </div>
+                                <div className="f-text">
+                                    <h4>Dynamic Curriculum</h4>
+                                    <p>
+                                        Scholarship exams and fellowships designed for modern
+                                        environmental challenges.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="f-point">
+                                <div className="f-icon">
+                                    <Leaf size={24} />
+                                </div>
+                                <div className="f-text">
+                                    <h4>Rooted Action</h4>
+                                    <p>
+                                        Grassroots community projects that put regenerative theory
+                                        into practice.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="framework-visual">
+                        <div className="visual-orb"></div>
+                        <img src="/story-mission.png" alt="Framework" />
+                    </div>
+                </div>
+            </section>
+
+            {/* INSTITUTIONAL PATHWAYS */}
+            <section className="home-pathways">
+                <div className="pathways-head center">
+                    <p className="section-label">Scale through Collaboration</p>
+                    <h2 className="section-title">
+                        Institutional <em>Pathways</em>
+                    </h2>
+                </div>
+                <div className="pathways-grid">
+                    <div className="path-card">
+                        <div className="path-top">
+                            <span className="path-num">01</span>
+                            <GraduationCap size={32} />
+                        </div>
+                        <h3>Academic Alliances</h3>
+                        <p>
+                            Partnering with universities to integrate sustainability into
+                            mainstream higher education.
+                        </p>
+                    </div>
+                    <div className="path-card">
+                        <div className="path-top">
+                            <span className="path-num">02</span>
+                            <ExternalLink size={32} />
+                        </div>
+                        <h3>Corporate Synergy</h3>
+                        <p>
+                            Driving CSR initiatives that create measurable environmental and
+                            social ROI.
+                        </p>
+                    </div>
+                    <div className="path-card">
+                        <div className="path-top">
+                            <span className="path-num">03</span>
+                            <Zap size={32} />
+                        </div>
+                        <h3>Government Policy</h3>
+                        <p>
+                            Advising on educational frameworks that align with India 2047
+                            sustainability goals.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SPONSORS & PARTNERS */}
+            <section className="home-sponsors">
+                <div className="sponsors-container">
+                    <div className="sponsors-header center">
+                        {/* <span className="sponsors-label">🤝 Our Sponsors & Partners</span> */}
+                        <h2 className="section-title">
+                            Powering Change <em>Together</em>
+                        </h2>
+                        <p className="sponsors-desc">
+                            We're grateful to collaborate with organizations that share our
+                            vision of environmental restoration and community empowerment.
+                            Together, we're creating lasting positive impact.
+                        </p>
+                    </div>
+                    <div className="sponsors-grid">
+                        <div className="sponsor-card">
+                            <img src="/sponsors/1-1.png" alt="Estah" />
+                        </div>
+                        <div className="sponsor-card">
+                            <img src="/sponsors/4.png" alt="C-SED" />
+                        </div>
+                        <div className="sponsor-card">
+                            <img src="/sponsors/5.png" alt="HNF Capital" />
+                        </div>
+                        <div className="sponsor-card">
+                            <img src="/sponsors/6.png" alt="Seal" />
+                        </div>
+                        <div className="sponsor-card">
+                            <img src="/sponsors/7.png" alt="National Parmathon" />
+                        </div>
+                        <div className="sponsor-card">
+                            <img src="/sponsors/8.png" alt="Earth Tree" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* COMMUNITY CTA */}
+            <section className="home-community-cta">
+                <div className="cta-box">
+                    <div className="cta-inner">
+                        <h2 className="cta-title">
+                            Ready to <em>Heal the Earth?</em>
+                        </h2>
+                        <p className="cta-sub">
+                            Join thousands of students, educators, and leaders in building a
+                            regenerative future.
+                        </p>
+                        <div className="cta-links">
+                            <a
+                                href="https://pages.razorpay.com/pl_HkMCyxeXURf9kK/view"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="cta-btn primary"
+                            >
+                                Support the Cause
+                            </a>
+                            {/* <Link href="/volunteers" className="cta-btn secondary">Become a Volunteer</Link> */}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <style jsx>{`
         .home-container {
           background: var(--bg);
           color: var(--text);
@@ -1284,6 +1284,6 @@ export default function HomePage() {
           }
         }
       `}</style>
-    </div>
-  );
+        </div>
+    );
 }
